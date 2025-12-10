@@ -14,7 +14,7 @@ import { useState } from "react"
 import { useMovies } from "@/app/context/MovieContext"
 
 const MovieCard = ({ movie }) => {
-  const { id, title, category, epilogue, rating, poster, trailer, video} = movie
+  const { id, title, category, epilogue, rating, poster, trailer, video } = movie
   const { likedMovies, watchLater, toggleLike, toggleWatchLater, getReviewCount, getAverageRating } = useMovies()
   const [hover, setHover] = useState(false)
 
@@ -55,7 +55,8 @@ const MovieCard = ({ movie }) => {
     )
   }
 
-  return (
+  return 
+  (
     <>
       <Card
         className="relative bg-(--color-card) border border-(--color-border) overflow-hidden rounded-lg shadow-md hover:shadow-2xl transition-all duration-300 animate-fadeIn cursor-pointer"
@@ -131,37 +132,34 @@ const MovieCard = ({ movie }) => {
         </CardHeader>
 
         {/* Action Buttons */}
-        <CardContent className="pt-0 flex gap-2 justify-between">
-          <button
-            onClick={() => toggleLike(id)}
-            className={`flex-1 px-3 py-2 rounded-md text-sm font-medium transition-all ${isLiked
-                ? "bg-(--color-destructive) text-white hover:opacity-90"
-                : "bg-(--color-muted) text-(--color-foreground) hover:bg-(--color-muted-foreground)"
-              }`}
-          >
-            ❤️
+        < className="pt-0 flex gap-2 justify-between">
+        <button
+          onClick={() => toggleLike(id)}
+          className={`flex-1 px-3 py-2 rounded-md text-sm font-medium transition-all ${isLiked
+            ? "bg-(--color-destructive) text-white hover:opacity-90"
+            : "bg-(--color-muted) text-(--color-foreground) hover:bg-(--color-muted-foreground)"
+            }`}
+        >
+          ❤️
+        </button>
+
+        <button
+          onClick={() => toggleWatchLater(id)}
+          className={`flex-1 px-3 py-2 rounded-md text-sm font-medium transition-all ${isSaved
+            ? "bg-(--color-accent) text-white hover:opacity-90"
+            : "bg-(--color-muted) text-(--color-foreground) hover:bg-(--color-muted-foreground)"
+            }`}
+        >
+          ⏰
+        </button>
+
+        <Link href={`/movies/${id}`} className="flex-1">
+          <button className="w-full px-3 py-2 rounded-md text-sm font-medium bg-(--color-primary) text-(--color-primary-foreground) hover:opacity-90 transition-all">
+            View
           </button>
-
-          <button
-            onClick={() => toggleWatchLater(id)}
-            className={`flex-1 px-3 py-2 rounded-md text-sm font-medium transition-all ${isSaved
-                ? "bg-(--color-accent) text-white hover:opacity-90"
-                : "bg-(--color-muted) text-(--color-foreground) hover:bg-(--color-muted-foreground)"
-              }`}
-          >
-            ⏰
-          </button>
-
-          <Link href={`/movies/${id}`} className="flex-1">
-            <button className="w-full px-3 py-2 rounded-md text-sm font-medium bg-(--color-primary) text-(--color-primary-foreground) hover:opacity-90 transition-all">
-              View
-            </button>
-          </Link>
-        </CardContent>
-      </Card>
-
-    </>
-  )
+        </Link>
+      </>
+ )     
 }
 
-export default MovieCard
+      export default MovieCard

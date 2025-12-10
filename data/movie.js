@@ -641,6 +641,7 @@ export const movies = [
     thumbnail: "${TMDB}/t_the_celestial_of_vault_40.png"
   }
 ]
+export const series = movies.filter((movie) => movie.type === "Series")
 export const getMovieById = (id) => {
   return movies.find((movie) => movie.id === parseInt(id))
 }
