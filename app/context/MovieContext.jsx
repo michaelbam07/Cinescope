@@ -5,23 +5,30 @@ import { createContext, useContext, useState, useMemo, useEffect } from "react"
 const MovieContext = createContext(null)
 
 export const MovieProvider = ({ children }) => {
+
   // -----------------------------------------
-  // ❤️ Liked & Watch Later
+  // 🎬 MOVIES — Likes & Watch Later
   // -----------------------------------------
   const [likedMovies, setLikedMovies] = useState([])
   const [watchLater, setWatchLater] = useState([])
 
   // -----------------------------------------
-  // 🎬 Filters
+  // 📺 SERIES — Likes & Watch Later
+  // -----------------------------------------
+  const [likedSeries, setLikedSeries] = useState([])
+  const [watchLaterSeries, setWatchLaterSeries] = useState([])
+
+  // -----------------------------------------
+  // 🎛 Filters
   // -----------------------------------------
   const [activeCategory, setActiveCategory] = useState("all")
   const [activeActor, setActiveActor] = useState("all")
 
   // -----------------------------------------
-  // ▶ VIDEO PLAYER STATE
+  // ▶ PLAYER STATE
   // -----------------------------------------
-  const [currentMovie, setCurrentMovie] = useState(null)         // full movie video
-  const [currentTrailer, setCurrentTrailer] = useState(null)     // trailer video
+  const [currentMovie, setCurrentMovie] = useState(null)
+  const [currentTrailer, setCurrentTrailer] = useState(null)
   const [isPlayerOpen, setIsPlayerOpen] = useState(false)
 
   const openMoviePlayer = (movie) => {
@@ -43,32 +50,31 @@ export const MovieProvider = ({ children }) => {
   }
 
   // -----------------------------------------
-  // 🔁 CONTINUE WATCHING SYSTEM
+  // 🔁 CONTINUE WATCHING (Movies)
   // -----------------------------------------
-  const [progress, setProgress] = useState({}) 
-  // Format: { movieId: { time: 120, duration: 7200 } }
+  const [progress, setProgress] = useState({})
 
-  const updateProgress = (movieId, time, duration) => {
-    setProgress(prev => ({
+  const updateProgress = (id, time, duration) => {
+    setProgress((prev) => ({
       ...prev,
-      [movieId]: { time, duration }
+      [id]: { time, duration },
     }))
   }
 
-  const resetProgress = (movieId) => {
-    setProgress(prev => {
-      const newState = { ...prev }
-      delete newState[movieId]
-      return newState
+  const resetProgress = (id) => {
+    setProgress((prev) => {
+      const copy = { ...prev }
+      delete copy[id]
+      return copy
     })
   }
 
   const continueWatchingList = Object.entries(progress)
-    .filter(([_, p]) => p.time > 5) // only show if watched for > 5 seconds
+    .filter(([_, p]) => p.time > 5)
     .map(([id, p]) => ({ id: Number(id), ...p }))
 
   // -----------------------------------------
-  // ❤️ Watch Later / Like Toggles
+  // ❤️ MOVIE ACTIONS
   // -----------------------------------------
   const toggleLike = (id) => {
     setLikedMovies((prev) =>
@@ -83,109 +89,129 @@ export const MovieProvider = ({ children }) => {
   }
 
   // -----------------------------------------
+  // ❤️ SERIES ACTIONS
+  // -----------------------------------------
+  const toggleLikeSeries = (id) => {
+    setLikedSeries((prev) =>
+      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
+    )
+  }
+
+  const toggleWatchLaterSeries = (id) => {
+    setWatchLaterSeries((prev) =>
+      prev.includes(id) ? prev.filter((s) => s !== id) : [...prev, id]
+    )
+  }
+
   // -----------------------------------------
   // Helpers
   // -----------------------------------------
+  const getMovieById = (id, list) =>
+    list.find((m) => m.id === Number(id))
+
   const favouriteMovies = likedMovies
 
-  const getMovieById = (id, list) => list.find((m) => m.id === Number(id))
-
   // -----------------------------------------
-  // 📝 Ratings & Reviews
+  // 📝 REVIEWS
   // -----------------------------------------
-  // Stored shape: { [movieId]: [ { id, name, rating, text, date } ] }
   const [reviews, setReviews] = useState({})
 
-  // Load reviews from localStorage on mount
   useEffect(() => {
-    try {
-      const raw = localStorage.getItem("cinescope_reviews")
-      if (raw) setReviews(JSON.parse(raw))
-    } catch (e) {
-      console.error("Failed to load reviews", e)
-    }
+    const raw = localStorage.getItem("cinescope_reviews")
+    if (raw) setReviews(JSON.parse(raw))
   }, [])
 
-  // Persist reviews whenever they change
   useEffect(() => {
-    try {
-      localStorage.setItem("cinescope_reviews", JSON.stringify(reviews))
-    } catch (e) {
-      console.error("Failed to save reviews", e)
-    }
+    localStorage.setItem("cinescope_reviews", JSON.stringify(reviews))
   }, [reviews])
 
-  const addReview = (movieId, { name = "Anonymous", rating = 0, text = "" }) => {
+  const addReview = (movieId, { name, rating, text }) => {
     const id = Date.now()
-    const entry = { id, name, rating: Number(rating), text, date: new Date().toISOString() }
+    const review = {
+      id,
+      name: name || "Anonymous",
+      rating: Number(rating),
+      text,
+      date: new Date().toISOString(),
+    }
+
     setReviews((prev) => {
       const copy = { ...prev }
-      const list = Array.isArray(copy[movieId]) ? [...copy[movieId]] : []
-      list.unshift(entry)
-      copy[movieId] = list
+      const existing = copy[movieId] || []
+      copy[movieId] = [review, ...existing]
       return copy
     })
   }
 
-  const getReviews = (movieId) => {
-    return Array.isArray(reviews[movieId]) ? reviews[movieId] : []
-  }
-
+  const getReviews = (movieId) => reviews[movieId] || []
   const getReviewCount = (movieId) => getReviews(movieId).length
 
   const getAverageRating = (movieId) => {
     const list = getReviews(movieId)
-    if (list.length === 0) return null
-    const sum = list.reduce((s, r) => s + (Number(r.rating) || 0), 0)
-    return Number((sum / list.length).toFixed(1))
+    if (!list.length) return null
+    const avg =
+      list.reduce((sum, r) => sum + r.rating, 0) / list.length
+    return avg.toFixed(1)
   }
 
   // -----------------------------------------
-  // Memoized Context
+  // Context Value
   // -----------------------------------------
   const value = useMemo(
     () => ({
+      // movies
       likedMovies,
       favouriteMovies,
       watchLater,
-      activeCategory,
-      activeActor,
-
       toggleLike,
       toggleWatchLater,
+
+      // series
+      likedSeries,
+      watchLaterSeries,
+      toggleLikeSeries,
+      toggleWatchLaterSeries,
+
+      // filters
+      activeCategory,
+      activeActor,
       setActiveCategory,
       setActiveActor,
-      getMovieById,
 
-      // --- VIDEO PLAYER ---
-      isPlayerOpen,
+      // player
       currentMovie,
       currentTrailer,
+      isPlayerOpen,
       openMoviePlayer,
       openTrailerPlayer,
       closePlayer,
 
-      // --- CONTINUE WATCHING ---
+      // progress
       progress,
       updateProgress,
       resetProgress,
       continueWatchingList,
 
-      // --- REVIEWS ---
+      // reviews
       reviews,
       addReview,
       getReviews,
       getReviewCount,
       getAverageRating,
+
+      // helpers
+      getMovieById,
     }),
     [
       likedMovies,
       watchLater,
+      likedSeries,
+      watchLaterSeries,
       activeCategory,
       activeActor,
-      isPlayerOpen,
       currentMovie,
       currentTrailer,
+      isPlayerOpen,
       progress,
       reviews,
     ]
@@ -198,8 +224,22 @@ export const MovieProvider = ({ children }) => {
   )
 }
 
+// ✅ MOVIE HOOK
 export const useMovies = () => {
   const ctx = useContext(MovieContext)
   if (!ctx) throw new Error("useMovies must be used inside MovieProvider")
   return ctx
+}
+
+// ✅ SERIES HOOK
+export const useSeries = () => {
+  const ctx = useContext(MovieContext)
+  if (!ctx) throw new Error("useSeries must be used inside MovieProvider")
+
+  return {
+    likedSeries: ctx.likedSeries,
+    watchLaterSeries: ctx.watchLaterSeries,
+    toggleLike: ctx.toggleLikeSeries,
+    toggleWatchLater: ctx.toggleWatchLaterSeries,
+  }
 }

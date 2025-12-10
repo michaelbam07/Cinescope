@@ -1,19 +1,19 @@
 "use client"
 
 import { useState, useMemo } from "react"
-import { useSeries } from "@/app/context/MovieContext"
+import { useMovies } from "@/app/context/MovieContext"
 import { series } from "@/data/movie"
 import SeriesCard from "@/components/MovieCard"
 import Filters from "@/components/Filters"
 import SearchBar from "@/components/SearchBar"
 
 export default function AllSeriesPage() {
-  const { activeCategory, activeActor } = useSeries()
+  const { activeCategory, activeActor } = useMovies()
   const [searchQuery, setSearchQuery] = useState("")
 
-  // Memoized filtered series for performance
   const filteredSeries = useMemo(() => {
     const lowerQuery = searchQuery.toLowerCase()
+
     return series.filter((s) => {
       const matchesSearch =
         s.title.toLowerCase().includes(lowerQuery) ||
@@ -25,7 +25,9 @@ export default function AllSeriesPage() {
 
       const matchesActor =
         activeActor === "all" ||
-        s.actors.some((actor) => actor.toLowerCase() === activeActor.toLowerCase())
+        s.actors.some(
+          (actor) => actor.toLowerCase() === activeActor.toLowerCase()
+        )
 
       return matchesSearch && matchesCategory && matchesActor
     })
@@ -33,8 +35,6 @@ export default function AllSeriesPage() {
 
   return (
     <main className="bg-(--color-background) min-h-screen text-(--color-foreground) pb-20 animate-fadeIn">
-
-      {/* PAGE HEADER */}
       <header className="container mx-auto px-6 pt-12 pb-8">
         <h1 className="text-5xl font-extrabold tracking-tight mb-6 text-(--color-primary)">
           Series
@@ -47,7 +47,6 @@ export default function AllSeriesPage() {
         <Filters />
       </header>
 
-      {/* SERIES GRID */}
       <section className="container mx-auto px-6">
         {filteredSeries.length === 0 && (
           <p className="text-(--color-muted-foreground) text-lg mt-20 text-center">
@@ -61,7 +60,7 @@ export default function AllSeriesPage() {
               key={s.id}
               className="transform transition-transform duration-300 hover:scale-105"
             >
-              <SeriesCard series={s} />
+              <SeriesCard movie={s} />
             </div>
           ))}
         </div>
