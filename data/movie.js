@@ -8,7 +8,7 @@ export const movies = [
     type: "Animated Film",
     actors: [ 'Marcus Trent', 'David Chen' ],
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    trailer: "https://www.themoviedb.org/video/play?key=5AwtptT8X8k",
+    trailer: "https://www.themoviedb.org/video/play?key=sEgPQ7HKoBA",
     rating: 8.9,
     keywords: [ 'animal', 'Cops', 'Justice'],
     kind: "FAM",
@@ -18,20 +18,20 @@ export const movies = [
   },
   {
     id: 2,
-    title: "The Ironclad of Legacy",
+    title: "Chainsaw Man the movie : Reze Arc",
     epilogue: "Two friends accidentally start a viral sensation that spins out of control.",
     dateReleased: "2024-06-03",
     category: "Comedy",
     type: "Feature Film",
     actors: [ 'Jake Miller', 'Hannah Lee' ],
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    trailer: "https://www.themoviedb.org/video/play?key=2l0k5x",
+    trailer: "https://www.themoviedb.org/video/play?key=tAzAhDNdehs",
     rating: 7.2,
     keywords: [ 'thriller', 'love', 'adventure' ],
     kind: "PG-13",
-    poster: "https://image.tmdb.org/t/p/original/i9v4q6g7p1y5z4.jpg",
-    backdrop: "https://image.tmdb.org/t/p/original/b_the_ironclad_of_legacy_2.jpg",
-    thumbnail: "https://image.tmdb.org/t/p/original/t_the_ironclad_of_legacy_2.png"
+    poster: "https://image.tmdb.org/t/p/original/pHyxb2RV5wLlboAwm9ZJ9qTVEDw.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/kfXgo2rMF1A19celCwLyQ4Xwpf8.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/2q1zIS8k7WcjN2ru70LgFurddRV.jpg"
   },
   {
     id: 3,
@@ -42,13 +42,13 @@ export const movies = [
     type: "Short Film",
     actors: [ 'Elias Vance', 'Sophia Reyes' ],
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    trailer: "https://www.themoviedb.org/video/play?key=3o2u1d",
+    trailer: "https://www.themoviedb.org/video/play?key=AzCAwdp1uIQ",
     rating: 9.3,
     keywords: [ 'conspiracy', 'dystopian', 'redemption' ],
     kind: "PG",
-    poster: "https://image.tmdb.org/t/p/original/m0v3g2h9j0x1e8.jpg",
-    backdrop: "https://image.tmdb.org/t/p/original/b_edge_of_eternity_3.jpg",
-    thumbnail: "https://image.tmdb.org/t/p/original/t_edge_of_eternity_3.png"
+    poster: "https://image.tmdb.org/t/p/original/9EcCgePL982B9cVxGaD5sEe5bcs.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/3UQoruaLA21ZNg1M3wz84Cv7asp.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/nNQ49WWdhJNHn733Zqrb3YXhd7J.jpg"
   },
   {
     id: 4,
@@ -59,13 +59,13 @@ export const movies = [
     type: "Short Film",
     actors: [ 'Marcus Trent', 'Emily Ross' ],
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    trailer: "https://www.themoviedb.org/video/play?key=4p4s1w",
+    trailer: "",
     rating: 8.6,
     keywords: [ 'magic', 'quest', 'suspense' ],
     kind: "R",
-    poster: "https://image.tmdb.org/t/p/original/r6s1n5g3h0e4r5.jpg",
-    backdrop: "https://image.tmdb.org/t/p/original/b_silent_witness_4.jpg",
-    thumbnail: "https://image.tmdb.org/t/p/original/t_silent_witness_4.png"
+    poster: "https://image.tmdb.org/t/p/original/ePLmlsCYO6u2xawWAbuWtq5lzPk.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/oMtstoTyGhyxwiuwPRtnq3UO08s.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/ePLmlsCYO6u2xawWAbuWtq5lzPk.jpg"
   },
   {
     id: 5,
@@ -78,35 +78,35 @@ export const movies = [
     {
       seasonNumber: 1,
       episodes: [
-        {episodeNumber: 1, title: "Episode 1", duration: "52m", thumbnail: "https://placehold.co/350x200?text=S1E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 2, title: "Episode 2", duration: "32m", thumbnail: "https://placehold.co/350x200?text=S1E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 3, title: "Episode 3", duration: "29m", thumbnail: "https://placehold.co/350x200?text=S1E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 4, title: "Episode 4", duration: "43m", thumbnail: "https://placehold.co/350x200?text=S1E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 5, title: "Episode 5", duration: "30m", thumbnail: "https://placehold.co/350x200?text=S1E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 6, title: "Episode 6", duration: "54m", thumbnail: "https://placehold.co/350x200?text=S1E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 7, title: "Episode 7", duration: "53m", thumbnail: "https://placehold.co/350x200?text=S1E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 8, title: "Episode 8", duration: "20m", thumbnail: "https://placehold.co/350x200?text=S1E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 9, title: "Episode 9", duration: "40m", thumbnail: "https://placehold.co/350x200?text=S1E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 10, title: "Episode 10", duration: "51m", thumbnail: "https://placehold.co/350x200?text=S1E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 11, title: "Episode 11", duration: "21m", thumbnail: "https://placehold.co/350x200?text=S1E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 12, title: "Episode 12", duration: "27m", thumbnail: "https://placehold.co/350x200?text=S1E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 13, title: "Episode 13", duration: "43m", thumbnail: "https://placehold.co/350x200?text=S1E13", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 14, title: "Episode 14", duration: "39m", thumbnail: "https://placehold.co/350x200?text=S1E14", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 15, title: "Episode 15", duration: "35m", thumbnail: "https://placehold.co/350x200?text=S1E15", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 16, title: "Episode 16", duration: "23m", thumbnail: "https://placehold.co/350x200?text=S1E16", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 17, title: "Episode 17", duration: "35m", thumbnail: "https://placehold.co/350x200?text=S1E17", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+        {episodeNumber: 1, title: "Episode 1", duration: "52m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "32m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "29m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "43m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "30m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "54m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "53m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "20m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "40m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 10, title: "Episode 10", duration: "51m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 11, title: "Episode 11", duration: "21m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 12, title: "Episode 12", duration: "27m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 13, title: "Episode 13", duration: "43m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E13", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 14, title: "Episode 14", duration: "39m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E14", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 15, title: "Episode 15", duration: "35m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E15", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 16, title: "Episode 16", duration: "23m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E16", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 17, title: "Episode 17", duration: "35m", thumbnail: "https://image.tmdb.org/t/p/original/iHurDtq1jiVIYyJ1PTuLzQhWLhU.jpg/350x200?text=S1E17", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
       ]
     }
   ],
     actors: [ 'Marcus Trent', 'Anya Sharma' ],
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    trailer: "https://www.themoviedb.org/video/play?key=5f9a6z",
+    trailer: "https://www.themoviedb.org/video/play?key=ndl1W4ltcmg",
     rating: 7.0,
     keywords: [ 'mystery', 'survival', 'action' ],
     kind: "PG-13",
-    poster: "https://image.tmdb.org/t/p/original/v3d2n8m7q9t0j1.jpg",
-    backdrop: "https://image.tmdb.org/t/p/original/b_the_ironclad_of_divide_5.jpg",
-    thumbnail: "https://image.tmdb.org/t/p/original/t_the_ironclad_of_divide_5.png"
+    poster: "https://image.tmdb.org/t/p/original/lc0e6yFIIXxAmQxXBitnvzEL6QB.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/jUKV10uDEfkdD3ywHG2id9D4nVV.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/m2XWQuOutO5r9GbXEUENB2HYvgv.jpg"
   },
   {
     id: 6,
@@ -117,13 +117,13 @@ export const movies = [
     type: "Documentary",
     actors: [ 'Marcus Trent', 'Sophia Reyes' ],
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    trailer: "https://www.themoviedb.org/video/play?key=6k4z3x",
+    trailer: "https://www.themoviedb.org/video/play?key=KD18ddeFuyM",
     rating: 9.4,
     keywords: [ 'robotics', 'mystery', 'thriller' ],
     kind: "PG",
-    poster: "https://image.tmdb.org/t/p/original/t5j9h3e7c8v4n2.jpg",
-    backdrop: "https://image.tmdb.org/t/p/original/b_the_silent_of_loop_6.jpg",
-    thumbnail: "https://image.tmdb.org/t/p/original/t_the_silent_of_loop_6.png"
+    poster: "https://image.tmdb.org/t/p/original/8MnVO1aSXJW4P64Sr5HVjZq3wsG.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/docDyCJrhPoFXAckB1aOiIv9Mz0.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/8MnVO1aSXJW4P64Sr5HVjZq3wsG.jpg"
   },
   {
     id: 7,
@@ -195,7 +195,7 @@ export const movies = [
   },
   {
     id: 11,
-    title: "The Crimson of Legacy",
+    title: "Stranger Things",
     epilogue: "A young wizard discovers a mythical weapon hidden deep within the forbidden woods.",
     dateReleased: "2022-04-19",
     category: "Fantasy",
@@ -204,65 +204,65 @@ export const movies = [
     {
       seasonNumber: 1,
       episodes: [
-        {episodeNumber: 1, title: "Episode 1", duration: "35m", thumbnail: "https://placehold.co/350x200?text=S1E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 2, title: "Episode 2", duration: "55m", thumbnail: "https://placehold.co/350x200?text=S1E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 3, title: "Episode 3", duration: "54m", thumbnail: "https://placehold.co/350x200?text=S1E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 4, title: "Episode 4", duration: "36m", thumbnail: "https://placehold.co/350x200?text=S1E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 5, title: "Episode 5", duration: "47m", thumbnail: "https://placehold.co/350x200?text=S1E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 6, title: "Episode 6", duration: "45m", thumbnail: "https://placehold.co/350x200?text=S1E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 7, title: "Episode 7", duration: "43m", thumbnail: "https://placehold.co/350x200?text=S1E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 8, title: "Episode 8", duration: "34m", thumbnail: "https://placehold.co/350x200?text=S1E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 9, title: "Episode 9", duration: "28m", thumbnail: "https://placehold.co/350x200?text=S1E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 10, title: "Episode 10", duration: "52m", thumbnail: "https://placehold.co/350x200?text=S1E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 11, title: "Episode 11", duration: "51m", thumbnail: "https://placehold.co/350x200?text=S1E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 12, title: "Episode 12", duration: "25m", thumbnail: "https://placehold.co/350x200?text=S1E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+        {episodeNumber: 1, title: "Episode 1", duration: "35m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "55m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "54m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "36m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "47m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "45m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "43m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "34m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "28m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 10, title: "Episode 10", duration: "52m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 11, title: "Episode 11", duration: "51m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 12, title: "Episode 12", duration: "25m", thumbnail: "https://image.tmdb.org/t/p/original/uOOtwVbSr4QDjAGIifLDwpb2Pdl.jpg/350x200?text=S1E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
       ]
     },
     {
       seasonNumber: 2,
       episodes: [
-        {episodeNumber: 1, title: "Episode 1", duration: "27m", thumbnail: "https://placehold.co/350x200?text=S2E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 2, title: "Episode 2", duration: "29m", thumbnail: "https://placehold.co/350x200?text=S2E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 3, title: "Episode 3", duration: "30m", thumbnail: "https://placehold.co/350x200?text=S2E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 4, title: "Episode 4", duration: "47m", thumbnail: "https://placehold.co/350x200?text=S2E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 5, title: "Episode 5", duration: "24m", thumbnail: "https://placehold.co/350x200?text=S2E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 6, title: "Episode 6", duration: "44m", thumbnail: "https://placehold.co/350x200?text=S2E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 7, title: "Episode 7", duration: "44m", thumbnail: "https://placehold.co/350x200?text=S2E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 8, title: "Episode 8", duration: "49m", thumbnail: "https://placehold.co/350x200?text=S2E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 9, title: "Episode 9", duration: "53m", thumbnail: "https://placehold.co/350x200?text=S2E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+        {episodeNumber: 1, title: "Episode 1", duration: "27m", thumbnail: "https://image.tmdb.org/t/p/original/mGn3kQAVssGkWCAjmYrEvD9tIRd.jpg/350x200?text=S2E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "29m", thumbnail: "https://image.tmdb.org/t/p/original/mGn3kQAVssGkWCAjmYrEvD9tIRd.jpg/350x200?text=S2E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "30m", thumbnail: "https://image.tmdb.org/t/p/original/mGn3kQAVssGkWCAjmYrEvD9tIRd.jpg/350x200?text=S2E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "47m", thumbnail: "https://image.tmdb.org/t/p/original/mGn3kQAVssGkWCAjmYrEvD9tIRd.jpg/350x200?text=S2E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "24m", thumbnail: "https://image.tmdb.org/t/p/original/mGn3kQAVssGkWCAjmYrEvD9tIRd.jpg/350x200?text=S2E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "44m", thumbnail: "https://image.tmdb.org/t/p/original/mGn3kQAVssGkWCAjmYrEvD9tIRd.jpg/350x200?text=S2E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "44m", thumbnail: "https://image.tmdb.org/t/p/original/mGn3kQAVssGkWCAjmYrEvD9tIRd.jpg/350x200?text=S2E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "49m", thumbnail: "https://image.tmdb.org/t/p/original/mGn3kQAVssGkWCAjmYrEvD9tIRd.jpg/350x200?text=S2E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "53m", thumbnail: "https://image.tmdb.org/t/p/original/mGn3kQAVssGkWCAjmYrEvD9tIRd.jpg/350x200?text=S2E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
       ]
     },
     {
       seasonNumber: 3,
       episodes: [
-        {episodeNumber: 1, title: "Episode 1", duration: "55m", thumbnail: "https://placehold.co/350x200?text=S3E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 2, title: "Episode 2", duration: "20m", thumbnail: "https://placehold.co/350x200?text=S3E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 3, title: "Episode 3", duration: "27m", thumbnail: "https://placehold.co/350x200?text=S3E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 4, title: "Episode 4", duration: "54m", thumbnail: "https://placehold.co/350x200?text=S3E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 5, title: "Episode 5", duration: "37m", thumbnail: "https://placehold.co/350x200?text=S3E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 6, title: "Episode 6", duration: "41m", thumbnail: "https://placehold.co/350x200?text=S3E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 7, title: "Episode 7", duration: "27m", thumbnail: "https://placehold.co/350x200?text=S3E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 8, title: "Episode 8", duration: "38m", thumbnail: "https://placehold.co/350x200?text=S3E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 9, title: "Episode 9", duration: "47m", thumbnail: "https://placehold.co/350x200?text=S3E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 10, title: "Episode 10", duration: "30m", thumbnail: "https://placehold.co/350x200?text=S3E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 11, title: "Episode 11", duration: "49m", thumbnail: "https://placehold.co/350x200?text=S3E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 12, title: "Episode 12", duration: "20m", thumbnail: "https://placehold.co/350x200?text=S3E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 13, title: "Episode 13", duration: "36m", thumbnail: "https://placehold.co/350x200?text=S3E13", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 14, title: "Episode 14", duration: "52m", thumbnail: "https://placehold.co/350x200?text=S3E14", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 15, title: "Episode 15", duration: "31m", thumbnail: "https://placehold.co/350x200?text=S3E15", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 16, title: "Episode 16", duration: "52m", thumbnail: "https://placehold.co/350x200?text=S3E16", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+        {episodeNumber: 1, title: "Episode 1", duration: "55m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "20m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "27m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "54m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "37m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "41m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "27m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "38m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "47m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 10, title: "Episode 10", duration: "30m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 11, title: "Episode 11", duration: "49m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 12, title: "Episode 12", duration: "20m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 13, title: "Episode 13", duration: "36m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E13", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 14, title: "Episode 14", duration: "52m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E14", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 15, title: "Episode 15", duration: "31m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E15", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 16, title: "Episode 16", duration: "52m", thumbnail: "https://image.tmdb.org/t/p/original/cVxVGwHce6xnW8UaVUggaPXbmoE.jpg/350x200?text=S3E16", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
       ]
     }
   ],
     actors: [ 'Emily Ross', 'Elias Vance' ],
     video: "https://www.w3schools.com/html/mov_bbb.mp4",
-    trailer: "https://www.themoviedb.org/video/play?key=11t0r8",
+    trailer: "https://www.themoviedb.org/video/play?key=PssKpzB0Ah0",
     rating: 7.3,
     keywords: [ 'time travel', 'magic', 'mystery' ],
     kind: "PG-13",
-    poster: "https://image.tmdb.org/t/p/original/k3m9n0b5v2x1c4.jpg",
-    backdrop: "https://image.tmdb.org/t/p/original/b_the_crimson_of_legacy_11.jpg",
-    thumbnail: "https://image.tmdb.org/t/p/original/t_the_crimson_of_legacy_11.png"
+    poster: "https://image.tmdb.org/t/p/original/mGn3kQAVssGkWCAjmYrEvD9tIRd.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/sqVXe7s3QAvr9WObl8Xo88GGoL0.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/leKcWu1C5NFQIkR6qI3fiPSKRzG.jpg"
   },
   {
     id: 12,
@@ -651,14 +651,14 @@ export const movies = [
     {
       seasonNumber: 1,
       episodes: [
-        {episodeNumber: 1, title: "Episode 1", duration: "25m", thumbnail: "https://placehold.co/350x200?text=S1E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 2, title: "Episode 2", duration: "33m", thumbnail: "https://placehold.co/350x200?text=S1E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 3, title: "Episode 3", duration: "34m", thumbnail: "https://placehold.co/350x200?text=S1E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 4, title: "Episode 4", duration: "52m", thumbnail: "https://placehold.co/350x200?text=S1E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 5, title: "Episode 5", duration: "21m", thumbnail: "https://placehold.co/350x200?text=S1E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 6, title: "Episode 6", duration: "55m", thumbnail: "https://placehold.co/350x200?text=S1E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 7, title: "Episode 7", duration: "32m", thumbnail: "https://placehold.co/350x200?text=S1E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
-        {episodeNumber: 8, title: "Episode 8", duration: "54m", thumbnail: "https://placehold.co/350x200?text=S1E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+        {episodeNumber: 1, title: "Episode 1", duration: "25m", thumbnail: "https://image.tmdb.org/t/p/original/lu2qf3BYHxW6XnajEKdehE8NdFW.jpg/350x200?text=S1E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "33m", thumbnail: "https://image.tmdb.org/t/p/original/lu2qf3BYHxW6XnajEKdehE8NdFW.jpg/350x200?text=S1E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "34m", thumbnail: "https://image.tmdb.org/t/p/original/lu2qf3BYHxW6XnajEKdehE8NdFW.jpg/350x200?text=S1E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "52m", thumbnail: "https://image.tmdb.org/t/p/original/lu2qf3BYHxW6XnajEKdehE8NdFW.jpg/350x200?text=S1E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "21m", thumbnail: "https://image.tmdb.org/t/p/original/lu2qf3BYHxW6XnajEKdehE8NdFW.jpg/350x200?text=S1E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "55m", thumbnail: "https://image.tmdb.org/t/p/original/lu2qf3BYHxW6XnajEKdehE8NdFW.jpg/350x200?text=S1E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "32m", thumbnail: "https://image.tmdb.org/t/p/original/lu2qf3BYHxW6XnajEKdehE8NdFW.jpg/350x200?text=S1E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "54m", thumbnail: "https://image.tmdb.org/t/p/original/lu2qf3BYHxW6XnajEKdehE8NdFW.jpg/350x200?text=S1E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
       ]
     }
   ],
@@ -669,8 +669,8 @@ export const movies = [
     keywords: [ 'comedy', 'love', 'redemption' ],
     kind: "G",
     poster: "https://image.tmdb.org/t/p/original/g0f2h4j6k8l1m3.jpg",
-    backdrop: "https://image.tmdb.org/t/p/original/b_the_quantum_of_legacy_29.jpg",
-    thumbnail: "https://image.tmdb.org/t/p/original/t_the_quantum_of_legacy_29.png"
+    backdrop: "https://image.tmdb.org/t/p/original/pQiI6RtUJAnM5zvcGW61lRFI7zE.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/masQgp6poxviX9kZmtHotGl8EiU.jpg"
   },
   {
     id: 30,
