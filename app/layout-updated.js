@@ -11,6 +11,7 @@ import { ThemeProvider } from "@/app/context/ThemeContext";
 import { ProfileProvider } from "@/app/context/ProfileContext";
 import { SessionProvider } from "next-auth/react";
 import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from "@vercel/analytics/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
