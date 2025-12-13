@@ -10,6 +10,7 @@ import { MovieProvider } from "@/app/context/MovieContext";
 import { ThemeProvider } from "@/app/context/ThemeContext";
 import { ProfileProvider } from "@/app/context/ProfileContext";
 import { SessionProvider } from "next-auth/react";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",

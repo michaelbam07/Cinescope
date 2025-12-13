@@ -8,6 +8,7 @@ import ProfileSelectorWrapper from "@/components/ProfileSelectorWrapper";
 import { MovieProvider } from "@/app/context/MovieContext";
 import { ThemeProvider } from "@/app/context/ThemeContext";
 import { ProfileProvider } from "@/app/context/ProfileContext";
+import { SpeedInsights } from "@vercel/speed-insights/next"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
