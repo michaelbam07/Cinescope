@@ -60,7 +60,7 @@ export default function AllMoviesPage() {
               key={movie.id}
               className="transform transition-transform duration-300 hover:scale-105"
             >
-              <MovieCard movie={movie} />
+              <MovieCard item={movie} />
             </div>
           ))}
         </div>

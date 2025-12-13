@@ -12,7 +12,7 @@ export const movies = [
     rating: 8.9,
     keywords: [ 'animal', 'Cops', 'Justice'],
     kind: "FAM",
-    poster: "https://image.tmdb.org/t/p/original/3Wg1LBCiTEXTxRrkNKOqJyyIFyF.jpg",
+    poster: "https://image.tmdb.org/t/p/original/bjUWGw0Ao0qVWxagN3VCwBJHVo6.jpg",
     backdrop: "https://image.tmdb.org/t/p/original/5h2EsPKNDdB3MAtOk9MB9Ycg9Rz.jpg",
     thumbnail: "https://image.tmdb.org/t/p/original/3Wg1LBCiTEXTxRrkNKOqJyyIFyF.jpg"
   },
@@ -24,13 +24,14 @@ export const movies = [
     category: "Comedy",
     type: "Feature Film",
     actors: [ 'Jake Miller', 'Hannah Lee' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=2l0k5x",
     rating: 7.2,
     keywords: [ 'thriller', 'love', 'adventure' ],
     kind: "PG-13",
-    poster: "${TMDB}/i9v4q6g7p1y5z4.jpg",
-    backdrop: "${TMDB}/b_the_ironclad_of_legacy_2.jpg",
-    thumbnail: "${TMDB}/t_the_ironclad_of_legacy_2.png"
+    poster: "https://image.tmdb.org/t/p/original/i9v4q6g7p1y5z4.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_ironclad_of_legacy_2.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_ironclad_of_legacy_2.png"
   },
   {
     id: 3,
@@ -40,13 +41,14 @@ export const movies = [
     category: "Drama",
     type: "Short Film",
     actors: [ 'Elias Vance', 'Sophia Reyes' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=3o2u1d",
     rating: 9.3,
     keywords: [ 'conspiracy', 'dystopian', 'redemption' ],
     kind: "PG",
-    poster: "${TMDB}/m0v3g2h9j0x1e8.jpg",
-    backdrop: "${TMDB}/b_edge_of_eternity_3.jpg",
-    thumbnail: "${TMDB}/t_edge_of_eternity_3.png"
+    poster: "https://image.tmdb.org/t/p/original/m0v3g2h9j0x1e8.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_edge_of_eternity_3.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_edge_of_eternity_3.png"
   },
   {
     id: 4,
@@ -56,29 +58,55 @@ export const movies = [
     category: "Fantasy",
     type: "Short Film",
     actors: [ 'Marcus Trent', 'Emily Ross' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=4p4s1w",
     rating: 8.6,
     keywords: [ 'magic', 'quest', 'suspense' ],
     kind: "R",
-    poster: "${TMDB}/r6s1n5g3h0e4r5.jpg",
-    backdrop: "${TMDB}/b_silent_witness_4.jpg",
-    thumbnail: "${TMDB}/t_silent_witness_4.png"
+    poster: "https://image.tmdb.org/t/p/original/r6s1n5g3h0e4r5.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_silent_witness_4.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_silent_witness_4.png"
   },
   {
     id: 5,
-    title: "The Ironclad of Divide",
+    title: "The Witcher",
     epilogue: "Two rivals must team up to take down an international crime syndicate.",
     dateReleased: "2024-04-18",
     category: "Action",
     type: "Series",
+    seasons: [
+    {
+      seasonNumber: 1,
+      episodes: [
+        {episodeNumber: 1, title: "Episode 1", duration: "52m", thumbnail: "https://placehold.co/350x200?text=S1E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "32m", thumbnail: "https://placehold.co/350x200?text=S1E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "29m", thumbnail: "https://placehold.co/350x200?text=S1E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "43m", thumbnail: "https://placehold.co/350x200?text=S1E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "30m", thumbnail: "https://placehold.co/350x200?text=S1E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "54m", thumbnail: "https://placehold.co/350x200?text=S1E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "53m", thumbnail: "https://placehold.co/350x200?text=S1E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "20m", thumbnail: "https://placehold.co/350x200?text=S1E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "40m", thumbnail: "https://placehold.co/350x200?text=S1E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 10, title: "Episode 10", duration: "51m", thumbnail: "https://placehold.co/350x200?text=S1E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 11, title: "Episode 11", duration: "21m", thumbnail: "https://placehold.co/350x200?text=S1E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 12, title: "Episode 12", duration: "27m", thumbnail: "https://placehold.co/350x200?text=S1E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 13, title: "Episode 13", duration: "43m", thumbnail: "https://placehold.co/350x200?text=S1E13", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 14, title: "Episode 14", duration: "39m", thumbnail: "https://placehold.co/350x200?text=S1E14", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 15, title: "Episode 15", duration: "35m", thumbnail: "https://placehold.co/350x200?text=S1E15", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 16, title: "Episode 16", duration: "23m", thumbnail: "https://placehold.co/350x200?text=S1E16", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 17, title: "Episode 17", duration: "35m", thumbnail: "https://placehold.co/350x200?text=S1E17", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+      ]
+    }
+  ],
     actors: [ 'Marcus Trent', 'Anya Sharma' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=5f9a6z",
     rating: 7.0,
     keywords: [ 'mystery', 'survival', 'action' ],
     kind: "PG-13",
-    poster: "${TMDB}/v3d2n8m7q9t0j1.jpg",
-    backdrop: "${TMDB}/b_the_ironclad_of_divide_5.jpg",
-    thumbnail: "${TMDB}/t_the_ironclad_of_divide_5.png"
+    poster: "https://image.tmdb.org/t/p/original/v3d2n8m7q9t0j1.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_ironclad_of_divide_5.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_ironclad_of_divide_5.png"
   },
   {
     id: 6,
@@ -88,13 +116,14 @@ export const movies = [
     category: "Thriller",
     type: "Documentary",
     actors: [ 'Marcus Trent', 'Sophia Reyes' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=6k4z3x",
     rating: 9.4,
     keywords: [ 'robotics', 'mystery', 'thriller' ],
     kind: "PG",
-    poster: "${TMDB}/t5j9h3e7c8v4n2.jpg",
-    backdrop: "${TMDB}/b_the_silent_of_loop_6.jpg",
-    thumbnail: "${TMDB}/t_the_silent_of_loop_6.png"
+    poster: "https://image.tmdb.org/t/p/original/t5j9h3e7c8v4n2.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_silent_of_loop_6.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_silent_of_loop_6.png"
   },
   {
     id: 7,
@@ -104,13 +133,14 @@ export const movies = [
     category: "Documentary",
     type: "Feature Film",
     actors: [ 'Marcus Trent', 'Jake Miller' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=7m1n5o",
     rating: 7.7,
     keywords: [ 'space opera', 'survival', 'robotics' ],
     kind: "PG-13",
-    poster: "${TMDB}/p1g4t7r0s9w2x5.jpg",
-    backdrop: "${TMDB}/b_the_silent_of_resolve_7.jpg",
-    thumbnail: "${TMDB}/t_the_silent_of_resolve_7.png"
+    poster: "https://image.tmdb.org/t/p/original/p1g4t7r0s9w2x5.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_silent_of_resolve_7.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_silent_of_resolve_7.png"
   },
   {
     id: 8,
@@ -120,13 +150,14 @@ export const movies = [
     category: "Drama",
     type: "Feature Film",
     actors: [ 'Emily Ross', 'David Chen' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=8q9y2z",
     rating: 7.5,
     keywords: [ 'redemption', 'survival', 'quest' ],
     kind: "G",
-    poster: "${TMDB}/j8l0d6f4p1a2z3.jpg",
-    backdrop: "${TMDB}/b_quantum_loop_8.jpg",
-    thumbnail: "${TMDB}/t_quantum_loop_8.png"
+    poster: "https://image.tmdb.org/t/p/original/j8l0d6f4p1a2z3.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_quantum_loop_8.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_quantum_loop_8.png"
   },
   {
     id: 9,
@@ -136,13 +167,14 @@ export const movies = [
     category: "Action",
     type: "Feature Film",
     actors: [ 'Anya Sharma', 'David Chen' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=9s7x4v",
     rating: 8.1,
     keywords: [ 'conspiracy', 'thriller', 'mystery' ],
     kind: "R",
-    poster: "${TMDB}/w4e6c3d0y2r1t5.jpg",
-    backdrop: "${TMDB}/b_code_green_9.jpg",
-    thumbnail: "${TMDB}/t_code_green_9.png"
+    poster: "https://image.tmdb.org/t/p/original/w4e6c3d0y2r1t5.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_code_green_9.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_code_green_9.png"
   },
   {
     id: 10,
@@ -152,13 +184,14 @@ export const movies = [
     category: "Horror",
     type: "Feature Film",
     actors: [ 'Elias Vance', 'Hannah Lee' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=10h2j4",
     rating: 9.2,
     keywords: [ 'time travel', 'quest', 'suspense' ],
     kind: "PG-13",
-    poster: "${TMDB}/y7u5i3o4p2l1k9.jpg",
-    backdrop: "${TMDB}/b_the_ironclad_of_divide_10.jpg",
-    thumbnail: "${TMDB}/t_the_ironclad_of_divide_10.png"
+    poster: "https://image.tmdb.org/t/p/original/y7u5i3o4p2l1k9.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_ironclad_of_divide_10.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_ironclad_of_divide_10.png"
   },
   {
     id: 11,
@@ -167,14 +200,69 @@ export const movies = [
     dateReleased: "2022-04-19",
     category: "Fantasy",
     type: "Series",
+    seasons: [
+    {
+      seasonNumber: 1,
+      episodes: [
+        {episodeNumber: 1, title: "Episode 1", duration: "35m", thumbnail: "https://placehold.co/350x200?text=S1E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "55m", thumbnail: "https://placehold.co/350x200?text=S1E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "54m", thumbnail: "https://placehold.co/350x200?text=S1E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "36m", thumbnail: "https://placehold.co/350x200?text=S1E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "47m", thumbnail: "https://placehold.co/350x200?text=S1E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "45m", thumbnail: "https://placehold.co/350x200?text=S1E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "43m", thumbnail: "https://placehold.co/350x200?text=S1E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "34m", thumbnail: "https://placehold.co/350x200?text=S1E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "28m", thumbnail: "https://placehold.co/350x200?text=S1E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 10, title: "Episode 10", duration: "52m", thumbnail: "https://placehold.co/350x200?text=S1E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 11, title: "Episode 11", duration: "51m", thumbnail: "https://placehold.co/350x200?text=S1E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 12, title: "Episode 12", duration: "25m", thumbnail: "https://placehold.co/350x200?text=S1E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+      ]
+    },
+    {
+      seasonNumber: 2,
+      episodes: [
+        {episodeNumber: 1, title: "Episode 1", duration: "27m", thumbnail: "https://placehold.co/350x200?text=S2E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "29m", thumbnail: "https://placehold.co/350x200?text=S2E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "30m", thumbnail: "https://placehold.co/350x200?text=S2E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "47m", thumbnail: "https://placehold.co/350x200?text=S2E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "24m", thumbnail: "https://placehold.co/350x200?text=S2E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "44m", thumbnail: "https://placehold.co/350x200?text=S2E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "44m", thumbnail: "https://placehold.co/350x200?text=S2E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "49m", thumbnail: "https://placehold.co/350x200?text=S2E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "53m", thumbnail: "https://placehold.co/350x200?text=S2E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+      ]
+    },
+    {
+      seasonNumber: 3,
+      episodes: [
+        {episodeNumber: 1, title: "Episode 1", duration: "55m", thumbnail: "https://placehold.co/350x200?text=S3E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "20m", thumbnail: "https://placehold.co/350x200?text=S3E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "27m", thumbnail: "https://placehold.co/350x200?text=S3E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "54m", thumbnail: "https://placehold.co/350x200?text=S3E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "37m", thumbnail: "https://placehold.co/350x200?text=S3E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "41m", thumbnail: "https://placehold.co/350x200?text=S3E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "27m", thumbnail: "https://placehold.co/350x200?text=S3E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "38m", thumbnail: "https://placehold.co/350x200?text=S3E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "47m", thumbnail: "https://placehold.co/350x200?text=S3E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 10, title: "Episode 10", duration: "30m", thumbnail: "https://placehold.co/350x200?text=S3E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 11, title: "Episode 11", duration: "49m", thumbnail: "https://placehold.co/350x200?text=S3E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 12, title: "Episode 12", duration: "20m", thumbnail: "https://placehold.co/350x200?text=S3E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 13, title: "Episode 13", duration: "36m", thumbnail: "https://placehold.co/350x200?text=S3E13", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 14, title: "Episode 14", duration: "52m", thumbnail: "https://placehold.co/350x200?text=S3E14", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 15, title: "Episode 15", duration: "31m", thumbnail: "https://placehold.co/350x200?text=S3E15", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 16, title: "Episode 16", duration: "52m", thumbnail: "https://placehold.co/350x200?text=S3E16", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+      ]
+    }
+  ],
     actors: [ 'Emily Ross', 'Elias Vance' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=11t0r8",
     rating: 7.3,
     keywords: [ 'time travel', 'magic', 'mystery' ],
     kind: "PG-13",
-    poster: "${TMDB}/k3m9n0b5v2x1c4.jpg",
-    backdrop: "${TMDB}/b_the_crimson_of_legacy_11.jpg",
-    thumbnail: "${TMDB}/t_the_crimson_of_legacy_11.png"
+    poster: "https://image.tmdb.org/t/p/original/k3m9n0b5v2x1c4.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_crimson_of_legacy_11.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_crimson_of_legacy_11.png"
   },
   {
     id: 12,
@@ -184,13 +272,14 @@ export const movies = [
     category: "Sci-Fi",
     type: "Feature Film",
     actors: [ 'Anya Sharma', 'David Chen' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=12a7g6",
     rating: 8.8,
     keywords: [ 'dystopian', 'thriller', 'conspiracy' ],
     kind: "PG",
-    poster: "${TMDB}/l6k2p5t8y4c1v3.jpg",
-    backdrop: "${TMDB}/b_the_digital_of_time_12.jpg",
-    thumbnail: "${TMDB}/t_the_digital_of_time_12.png"
+    poster: "https://image.tmdb.org/t/p/original/l6k2p5t8y4c1v3.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_digital_of_time_12.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_digital_of_time_12.png"
   },
   {
     id: 13,
@@ -200,13 +289,14 @@ export const movies = [
     category: "Horror",
     type: "Feature Film",
     actors: [ 'Marcus Trent', 'Sophia Reyes' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=13u4z9",
     rating: 7.6,
     keywords: [ 'mystery', 'survival', 'time travel' ],
     kind: "PG-13",
-    poster: "${TMDB}/z9x1y4e7t3r2w0.jpg",
-    backdrop: "${TMDB}/b_silent_vault_13.jpg",
-    thumbnail: "${TMDB}/t_silent_vault_13.png"
+    poster: "https://image.tmdb.org/t/p/original/z9x1y4e7t3r2w0.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_silent_vault_13.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_silent_vault_13.png"
   },
   {
     id: 14,
@@ -216,13 +306,14 @@ export const movies = [
     category: "Documentary",
     type: "Feature Film",
     actors: [ 'Jake Miller', 'Emily Ross' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=14i5o2",
     rating: 6.9,
     keywords: [ 'time travel', 'robotics', 'thriller' ],
     kind: "PG",
-    poster: "${TMDB}/a0b6c4d7e3f2g1.jpg",
-    backdrop: "${TMDB}/b_the_silent_of_resolve_14.jpg",
-    thumbnail: "${TMDB}/t_the_silent_of_resolve_14.png"
+    poster: "https://image.tmdb.org/t/p/original/a0b6c4d7e3f2g1.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_silent_of_resolve_14.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_silent_of_resolve_14.png"
   },
   {
     id: 15,
@@ -232,13 +323,14 @@ export const movies = [
     category: "Sci-Fi",
     type: "Documentary",
     actors: [ 'Emily Ross', 'Hannah Lee' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=15k3j7",
     rating: 8.3,
     keywords: [ 'dystopian', 'space opera', 'survival' ],
     kind: "PG-13",
-    poster: "${TMDB}/h5g1k4l7j3m9n0.jpg",
-    backdrop: "${TMDB}/b_the_quantum_of_vault_15.jpg",
-    thumbnail: "${TMDB}/t_the_quantum_of_vault_15.png"
+    poster: "https://image.tmdb.org/t/p/original/h5g1k4l7j3m9n0.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_quantum_of_vault_15.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_quantum_of_vault_15.png"
   },
   {
     id: 16,
@@ -248,13 +340,14 @@ export const movies = [
     category: "Thriller",
     type: "Feature Film",
     actors: [ 'Elias Vance', 'Sophia Reyes' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=16a8b1",
     rating: 7.1,
     keywords: [ 'suspense', 'ancient', 'mystery' ],
     kind: "R",
-    poster: "${TMDB}/x2y5z8w1t7r4q3.jpg",
-    backdrop: "${TMDB}/b_code_red_16.jpg",
-    thumbnail: "${TMDB}/t_code_red_16.png"
+    poster: "https://image.tmdb.org/t/p/original/x2y5z8w1t7r4q3.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_code_red_16.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_code_red_16.png"
   },
   {
     id: 17,
@@ -264,13 +357,14 @@ export const movies = [
     category: "Fantasy",
     type: "Feature Film",
     actors: [ 'Jake Miller', 'Marcus Trent' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=17c4d9",
     rating: 9.0,
     keywords: [ 'magic', 'quest', 'thriller' ],
     kind: "PG",
-    poster: "${TMDB}/v0u2s4t6r8p1l9.jpg",
-    backdrop: "${TMDB}/b_the_digital_of_resolve_17.jpg",
-    thumbnail: "${TMDB}/t_the_digital_of_resolve_17.png"
+    poster: "https://image.tmdb.org/t/p/original/v0u2s4t6r8p1l9.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_digital_of_resolve_17.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_digital_of_resolve_17.png"
   },
   {
     id: 18,
@@ -280,13 +374,14 @@ export const movies = [
     category: "Comedy",
     type: "Feature Film",
     actors: [ 'David Chen', 'Emily Ross' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=18e6f3",
     rating: 8.4,
     keywords: [ 'love', 'comedy', 'robotics' ],
     kind: "G",
-    poster: "${TMDB}/r3a5y7h9k2j0i1.jpg",
-    backdrop: "${TMDB}/b_code_blue_18.jpg",
-    thumbnail: "${TMDB}/t_code_blue_18.png"
+    poster: "https://image.tmdb.org/t/p/original/r3a5y7h9k2j0i1.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_code_blue_18.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_code_blue_18.png"
   },
   {
     id: 19,
@@ -296,13 +391,14 @@ export const movies = [
     category: "Horror",
     type: "Feature Film",
     actors: [ 'Hannah Lee', 'Anya Sharma' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=19g1h5",
     rating: 7.8,
     keywords: [ 'ghosts', 'time travel', 'suspense' ],
     kind: "R",
-    poster: "${TMDB}/z1x3c5v7b9n0m2.jpg",
-    backdrop: "${TMDB}/b_the_ironclad_of_time_19.jpg",
-    thumbnail: "${TMDB}/t_the_ironclad_of_time_19.png"
+    poster: "https://image.tmdb.org/t/p/original/z1x3c5v7b9n0m2.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_ironclad_of_time_19.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_ironclad_of_time_19.png"
   },
   {
     id: 20,
@@ -312,13 +408,14 @@ export const movies = [
     category: "Action",
     type: "Feature Film",
     actors: [ 'Sophia Reyes', 'Elias Vance' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=20j2k6",
     rating: 6.8,
     keywords: [ 'action', 'thriller', 'conspiracy' ],
     kind: "PG-13",
-    poster: "${TMDB}/p4r6t8w0u1y3e5.jpg",
-    backdrop: "${TMDB}/b_the_crimson_of_legacy_20.jpg",
-    thumbnail: "${TMDB}/t_the_crimson_of_legacy_20.png"
+    poster: "https://image.tmdb.org/t/p/original/p4r6t8w0u1y3e5.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_crimson_of_legacy_20.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_crimson_of_legacy_20.png"
   },
   {
     id: 21,
@@ -327,14 +424,102 @@ export const movies = [
     dateReleased: "2024-01-09",
     category: "Thriller",
     type: "Series",
+    seasons: [
+    {
+      seasonNumber: 1,
+      episodes: [
+        {episodeNumber: 1, title: "Episode 1", duration: "48m", thumbnail: "https://placehold.co/350x200?text=S1E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "37m", thumbnail: "https://placehold.co/350x200?text=S1E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "20m", thumbnail: "https://placehold.co/350x200?text=S1E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "30m", thumbnail: "https://placehold.co/350x200?text=S1E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "47m", thumbnail: "https://placehold.co/350x200?text=S1E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "41m", thumbnail: "https://placehold.co/350x200?text=S1E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "37m", thumbnail: "https://placehold.co/350x200?text=S1E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "29m", thumbnail: "https://placehold.co/350x200?text=S1E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "33m", thumbnail: "https://placehold.co/350x200?text=S1E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 10, title: "Episode 10", duration: "41m", thumbnail: "https://placehold.co/350x200?text=S1E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 11, title: "Episode 11", duration: "26m", thumbnail: "https://placehold.co/350x200?text=S1E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 12, title: "Episode 12", duration: "25m", thumbnail: "https://placehold.co/350x200?text=S1E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 13, title: "Episode 13", duration: "44m", thumbnail: "https://placehold.co/350x200?text=S1E13", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 14, title: "Episode 14", duration: "26m", thumbnail: "https://placehold.co/350x200?text=S1E14", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 15, title: "Episode 15", duration: "42m", thumbnail: "https://placehold.co/350x200?text=S1E15", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+      ]
+    },
+    {
+      seasonNumber: 2,
+      episodes: [
+        {episodeNumber: 1, title: "Episode 1", duration: "36m", thumbnail: "https://placehold.co/350x200?text=S2E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "22m", thumbnail: "https://placehold.co/350x200?text=S2E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "49m", thumbnail: "https://placehold.co/350x200?text=S2E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "54m", thumbnail: "https://placehold.co/350x200?text=S2E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "27m", thumbnail: "https://placehold.co/350x200?text=S2E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "44m", thumbnail: "https://placehold.co/350x200?text=S2E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "25m", thumbnail: "https://placehold.co/350x200?text=S2E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "55m", thumbnail: "https://placehold.co/350x200?text=S2E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "38m", thumbnail: "https://placehold.co/350x200?text=S2E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 10, title: "Episode 10", duration: "43m", thumbnail: "https://placehold.co/350x200?text=S2E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 11, title: "Episode 11", duration: "32m", thumbnail: "https://placehold.co/350x200?text=S2E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 12, title: "Episode 12", duration: "24m", thumbnail: "https://placehold.co/350x200?text=S2E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 13, title: "Episode 13", duration: "22m", thumbnail: "https://placehold.co/350x200?text=S2E13", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 14, title: "Episode 14", duration: "34m", thumbnail: "https://placehold.co/350x200?text=S2E14", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 15, title: "Episode 15", duration: "38m", thumbnail: "https://placehold.co/350x200?text=S2E15", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 16, title: "Episode 16", duration: "25m", thumbnail: "https://placehold.co/350x200?text=S2E16", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 17, title: "Episode 17", duration: "34m", thumbnail: "https://placehold.co/350x200?text=S2E17", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 18, title: "Episode 18", duration: "26m", thumbnail: "https://placehold.co/350x200?text=S2E18", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 19, title: "Episode 19", duration: "44m", thumbnail: "https://placehold.co/350x200?text=S2E19", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+      ]
+    },
+    {
+      seasonNumber: 3,
+      episodes: [
+        {episodeNumber: 1, title: "Episode 1", duration: "49m", thumbnail: "https://placehold.co/350x200?text=S3E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "43m", thumbnail: "https://placehold.co/350x200?text=S3E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "30m", thumbnail: "https://placehold.co/350x200?text=S3E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "43m", thumbnail: "https://placehold.co/350x200?text=S3E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "42m", thumbnail: "https://placehold.co/350x200?text=S3E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "33m", thumbnail: "https://placehold.co/350x200?text=S3E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "37m", thumbnail: "https://placehold.co/350x200?text=S3E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "24m", thumbnail: "https://placehold.co/350x200?text=S3E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "30m", thumbnail: "https://placehold.co/350x200?text=S3E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 10, title: "Episode 10", duration: "54m", thumbnail: "https://placehold.co/350x200?text=S3E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 11, title: "Episode 11", duration: "35m", thumbnail: "https://placehold.co/350x200?text=S3E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 12, title: "Episode 12", duration: "30m", thumbnail: "https://placehold.co/350x200?text=S3E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 13, title: "Episode 13", duration: "49m", thumbnail: "https://placehold.co/350x200?text=S3E13", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 14, title: "Episode 14", duration: "44m", thumbnail: "https://placehold.co/350x200?text=S3E14", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 15, title: "Episode 15", duration: "37m", thumbnail: "https://placehold.co/350x200?text=S3E15", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 16, title: "Episode 16", duration: "55m", thumbnail: "https://placehold.co/350x200?text=S3E16", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+      ]
+    },
+    {
+      seasonNumber: 4,
+      episodes: [
+        {episodeNumber: 1, title: "Episode 1", duration: "40m", thumbnail: "https://placehold.co/350x200?text=S4E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "23m", thumbnail: "https://placehold.co/350x200?text=S4E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "34m", thumbnail: "https://placehold.co/350x200?text=S4E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "22m", thumbnail: "https://placehold.co/350x200?text=S4E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "40m", thumbnail: "https://placehold.co/350x200?text=S4E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "45m", thumbnail: "https://placehold.co/350x200?text=S4E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "37m", thumbnail: "https://placehold.co/350x200?text=S4E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "24m", thumbnail: "https://placehold.co/350x200?text=S4E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 9, title: "Episode 9", duration: "33m", thumbnail: "https://placehold.co/350x200?text=S4E9", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 10, title: "Episode 10", duration: "40m", thumbnail: "https://placehold.co/350x200?text=S4E10", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 11, title: "Episode 11", duration: "33m", thumbnail: "https://placehold.co/350x200?text=S4E11", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 12, title: "Episode 12", duration: "51m", thumbnail: "https://placehold.co/350x200?text=S4E12", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 13, title: "Episode 13", duration: "45m", thumbnail: "https://placehold.co/350x200?text=S4E13", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 14, title: "Episode 14", duration: "49m", thumbnail: "https://placehold.co/350x200?text=S4E14", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 15, title: "Episode 15", duration: "29m", thumbnail: "https://placehold.co/350x200?text=S4E15", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+      ]
+    }
+  ],
     actors: [ 'David Chen', 'Anya Sharma' ],
-    trailer: "https://www.moviedb.org/video/play?key=21l4m7",
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
+    trailer: "https://www.themoviedb.org/video/play?key=21l4m7",
     rating: 9.1,
     keywords: [ 'suspense', 'mystery', 'thriller' ],
     kind: "R",
-    poster: "${TMDB}/a9b7c5d3e1f0g2.jpg",
-    backdrop: "${TMDB}/b_the_crimson_of_divide_21.jpg",
-    thumbnail: "${TMDB}/t_the_crimson_of_divide_21.png"
+    poster: "https://image.tmdb.org/t/p/original/a9b7c5d3e1f0g2.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_crimson_of_divide_21.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_crimson_of_divide_21.png"
   },
   {
     id: 22,
@@ -344,13 +529,14 @@ export const movies = [
     category: "Sci-Fi",
     type: "Feature Film",
     actors: [ 'Elias Vance', 'Jake Miller' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=22n6p0",
     rating: 7.4,
     keywords: [ 'dystopian', 'science', 'space opera' ],
     kind: "PG",
-    poster: "${TMDB}/h8j0k9l1m3n5o7.jpg",
-    backdrop: "${TMDB}/b_the_ironclad_of_vault_22.jpg",
-    thumbnail: "${TMDB}/t_the_ironclad_of_vault_22.png"
+    poster: "https://image.tmdb.org/t/p/original/h8j0k9l1m3n5o7.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_ironclad_of_vault_22.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_ironclad_of_vault_22.png"
   },
   {
     id: 23,
@@ -360,13 +546,14 @@ export const movies = [
     category: "Drama",
     type: "Feature Film",
     actors: [ 'Emily Ross', 'Marcus Trent' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=23q8r1",
     rating: 8.0,
     keywords: [ 'redemption', 'love', 'human nature' ],
     kind: "PG-13",
-    poster: "${TMDB}/s2t4v6x8z0q1w3.jpg",
-    backdrop: "${TMDB}/b_the_silent_of_witness_23.jpg",
-    thumbnail: "${TMDB}/t_the_silent_of_witness_23.png"
+    poster: "https://image.tmdb.org/t/p/original/s2t4v6x8z0q1w3.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_silent_of_witness_23.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_silent_of_witness_23.png"
   },
   {
     id: 24,
@@ -376,13 +563,14 @@ export const movies = [
     category: "Documentary",
     type: "Documentary",
     actors: [ 'Sophia Reyes', 'Jake Miller' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=24s1t3",
     rating: 9.5,
     keywords: [ 'science', 'robotics', 'ancient' ],
     kind: "G",
-    poster: "${TMDB}/u5y7w9x0v2b4n6.jpg",
-    backdrop: "${TMDB}/b_the_cursed_of_time_24.jpg",
-    thumbnail: "${TMDB}/t_the_cursed_of_time_24.png"
+    poster: "https://image.tmdb.org/t/p/original/u5y7w9x0v2b4n6.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_cursed_of_time_24.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_cursed_of_time_24.png"
   },
   {
     id: 25,
@@ -392,13 +580,14 @@ export const movies = [
     category: "Horror",
     type: "Feature Film",
     actors: [ 'Hannah Lee', 'David Chen' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=25v5w7",
     rating: 7.9,
     keywords: [ 'suspense', 'ghosts', 'mystery' ],
     kind: "R",
-    poster: "${TMDB}/c8e0d6f4p2o1i9.jpg",
-    backdrop: "${TMDB}/b_the_digital_of_witness_25.jpg",
-    thumbnail: "${TMDB}/t_the_digital_of_witness_25.png"
+    poster: "https://image.tmdb.org/t/p/original/c8e0d6f4p2o1i9.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_digital_of_witness_25.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_digital_of_witness_25.png"
   },
   {
     id: 26,
@@ -408,13 +597,14 @@ export const movies = [
     category: "Sci-Fi",
     type: "Feature Film",
     actors: [ 'Anya Sharma', 'Emily Ross' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=26x9z0",
     rating: 8.7,
     keywords: [ 'time travel', 'science', 'dystopian' ],
     kind: "PG-13",
-    poster: "${TMDB}/k1l3j5m7n9b0v2.jpg",
-    backdrop: "${TMDB}/b_code_black_26.jpg",
-    thumbnail: "${TMDB}/t_code_black_26.png"
+    poster: "https://image.tmdb.org/t/p/original/k1l3j5m7n9b0v2.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_code_black_26.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_code_black_26.png"
   },
   {
     id: 27,
@@ -424,13 +614,14 @@ export const movies = [
     category: "Fantasy",
     type: "Feature Film",
     actors: [ 'Hannah Lee', 'Jake Miller' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=27y1a3",
     rating: 6.6,
     keywords: [ 'magic', 'ancient', 'quest' ],
     kind: "PG",
-    poster: "${TMDB}/p4o6i8u0y2t5r7.jpg",
-    backdrop: "${TMDB}/b_the_silent_of_vault_27.jpg",
-    thumbnail: "${TMDB}/t_the_silent_of_vault_27.png"
+    poster: "https://image.tmdb.org/t/p/original/p4o6i8u0y2t5r7.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_silent_of_vault_27.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_silent_of_vault_27.png"
   },
   {
     id: 28,
@@ -440,13 +631,14 @@ export const movies = [
     category: "Thriller",
     type: "Feature Film",
     actors: [ 'Elias Vance', 'Hannah Lee' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=28b5d9",
     rating: 9.3,
     keywords: [ 'suspense', 'conspiracy', 'noir' ],
     kind: "R",
-    poster: "${TMDB}/z7x9c1b3d5e0f2.jpg",
-    backdrop: "${TMDB}/b_the_digital_of_divide_28.jpg",
-    thumbnail: "${TMDB}/t_the_digital_of_divide_28.png"
+    poster: "https://image.tmdb.org/t/p/original/z7x9c1b3d5e0f2.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_digital_of_divide_28.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_digital_of_divide_28.png"
   },
   {
     id: 29,
@@ -455,14 +647,30 @@ export const movies = [
     dateReleased: "2024-03-24",
     category: "Comedy",
     type: "Series",
+    seasons: [
+    {
+      seasonNumber: 1,
+      episodes: [
+        {episodeNumber: 1, title: "Episode 1", duration: "25m", thumbnail: "https://placehold.co/350x200?text=S1E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "33m", thumbnail: "https://placehold.co/350x200?text=S1E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "34m", thumbnail: "https://placehold.co/350x200?text=S1E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "52m", thumbnail: "https://placehold.co/350x200?text=S1E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "21m", thumbnail: "https://placehold.co/350x200?text=S1E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "55m", thumbnail: "https://placehold.co/350x200?text=S1E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "32m", thumbnail: "https://placehold.co/350x200?text=S1E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "54m", thumbnail: "https://placehold.co/350x200?text=S1E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+      ]
+    }
+  ],
     actors: [ 'David Chen', 'Sophia Reyes' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=29f7g1",
     rating: 8.2,
     keywords: [ 'comedy', 'love', 'redemption' ],
     kind: "G",
-    poster: "${TMDB}/g0f2h4j6k8l1m3.jpg",
-    backdrop: "${TMDB}/b_the_quantum_of_legacy_29.jpg",
-    thumbnail: "${TMDB}/t_the_quantum_of_legacy_29.png"
+    poster: "https://image.tmdb.org/t/p/original/g0f2h4j6k8l1m3.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_quantum_of_legacy_29.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_quantum_of_legacy_29.png"
   },
   {
     id: 30,
@@ -472,13 +680,14 @@ export const movies = [
     category: "Action",
     type: "Feature Film",
     actors: [ 'Jake Miller', 'Emily Ross' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=30h9i2",
     rating: 7.7,
     keywords: [ 'action', 'thriller', 'mystery' ],
     kind: "PG-13",
-    poster: "${TMDB}/o5q7s9w1x3z2a4.jpg",
-    backdrop: "${TMDB}/b_the_digital_of_witness_30.jpg",
-    thumbnail: "${TMDB}/t_the_digital_of_witness_30.png"
+    poster: "https://image.tmdb.org/t/p/original/o5q7s9w1x3z2a4.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_digital_of_witness_30.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_digital_of_witness_30.png"
   },
   {
     id: 31,
@@ -488,13 +697,14 @@ export const movies = [
     category: "Horror",
     type: "Feature Film",
     actors: [ 'Anya Sharma', 'Hannah Lee' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=31j1k3",
     rating: 6.7,
     keywords: [ 'ghosts', 'suspense', 'mystery' ],
     kind: "R",
-    poster: "${TMDB}/b2c4d6f8h0j1l3.jpg",
-    backdrop: "${TMDB}/b_edge_of_chaos_31.jpg",
-    thumbnail: "${TMDB}/t_edge_of_chaos_31.png"
+    poster: "https://image.tmdb.org/t/p/original/b2c4d6f8h0j1l3.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_edge_of_chaos_31.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_edge_of_chaos_31.png"
   },
   {
     id: 32,
@@ -504,13 +714,14 @@ export const movies = [
     category: "Sci-Fi",
     type: "Feature Film",
     actors: [ 'David Chen', 'Elias Vance' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=32l5m7",
     rating: 8.5,
     keywords: [ 'space opera', 'dystopian', 'robotics' ],
     kind: "PG-13",
-    poster: "${TMDB}/n5p7r9t1u3w0x2.jpg",
-    backdrop: "${TMDB}/b_the_cursed_of_loop_32.jpg",
-    thumbnail: "${TMDB}/t_the_cursed_of_loop_32.png"
+    poster: "https://image.tmdb.org/t/p/original/n5p7r9t1u3w0x2.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_cursed_of_loop_32.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_cursed_of_loop_32.png"
   },
   {
     id: 33,
@@ -520,13 +731,14 @@ export const movies = [
     category: "Drama",
     type: "Feature Film",
     actors: [ 'Sophia Reyes', 'Emily Ross' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=33n9p0",
     rating: 9.0,
     keywords: [ 'redemption', 'love', 'conspiracy' ],
     kind: "PG",
-    poster: "${TMDB}/q0r2t4y6u8i1o3.jpg",
-    backdrop: "${TMDB}/b_the_quantum_of_resolve_33.jpg",
-    thumbnail: "${TMDB}/t_the_quantum_of_resolve_33.png"
+    poster: "https://image.tmdb.org/t/p/original/q0r2t4y6u8i1o3.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_quantum_of_resolve_33.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_quantum_of_resolve_33.png"
   },
   {
     id: 34,
@@ -536,13 +748,14 @@ export const movies = [
     category: "Fantasy",
     type: "Feature Film",
     actors: [ 'Marcus Trent', 'David Chen' ],
-    trailer: "https://www.moviedb.org/video/play?key=34q1r2",
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
+    trailer: "https://www.themoviedb.org/video/play?key=34q1r2",
     rating: 7.5,
     keywords: [ 'magic', 'ancient', 'quest' ],
     kind: "G",
-    poster: "${TMDB}/s5d7f9g1h3j2k4.jpg",
-    backdrop: "${TMDB}/b_the_last_ascent_34.jpg",
-    thumbnail: "${TMDB}/t_the_last_ascent_34.png"
+    poster: "https://image.tmdb.org/t/p/original/s5d7f9g1h3j2k4.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_last_ascent_34.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_last_ascent_34.png"
   },
   {
     id: 35,
@@ -551,14 +764,30 @@ export const movies = [
     dateReleased: "2024-08-29",
     category: "Documentary",
     type: "Series",
+    seasons: [
+    {
+      seasonNumber: 1,
+      episodes: [
+        {episodeNumber: 1, title: "Episode 1", duration: "37m", thumbnail: "https://placehold.co/350x200?text=S1E1", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 2, title: "Episode 2", duration: "35m", thumbnail: "https://placehold.co/350x200?text=S1E2", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 3, title: "Episode 3", duration: "34m", thumbnail: "https://placehold.co/350x200?text=S1E3", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 4, title: "Episode 4", duration: "28m", thumbnail: "https://placehold.co/350x200?text=S1E4", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 5, title: "Episode 5", duration: "26m", thumbnail: "https://placehold.co/350x200?text=S1E5", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 6, title: "Episode 6", duration: "54m", thumbnail: "https://placehold.co/350x200?text=S1E6", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 7, title: "Episode 7", duration: "25m", thumbnail: "https://placehold.co/350x200?text=S1E7", video: "https://www.w3schools.com/html/mov_bbb.mp4"},
+        {episodeNumber: 8, title: "Episode 8", duration: "47m", thumbnail: "https://placehold.co/350x200?text=S1E8", video: "https://www.w3schools.com/html/mov_bbb.mp4"}
+      ]
+    }
+  ],
     actors: [ 'Anya Sharma', 'Jake Miller' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=35t3u5",
     rating: 8.3,
     keywords: [ 'science', 'mountaineering', 'survival' ],
     kind: "PG-13",
-    poster: "${TMDB}/t0v2w4x6z8y1u3.jpg",
-    backdrop: "${TMDB}/b_the_last_beacon_35.jpg",
-    thumbnail: "${TMDB}/t_the_last_beacon_35.png"
+    poster: "https://image.tmdb.org/t/p/original/t0v2w4x6z8y1u3.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_last_beacon_35.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_last_beacon_35.png"
   },
   {
     id: 36,
@@ -568,13 +797,14 @@ export const movies = [
     category: "Comedy",
     type: "Feature Film",
     actors: [ 'Emily Ross', 'Elias Vance' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=36v7w9",
     rating: 7.0,
     keywords: [ 'comedy', 'love', 'mystery' ],
     kind: "PG",
-    poster: "${TMDB}/u4x6z8v0t2r1q9.jpg",
-    backdrop: "${TMDB}/b_the_silent_of_loop_36.jpg",
-    thumbnail: "${TMDB}/t_the_silent_of_loop_36.png"
+    poster: "https://image.tmdb.org/t/p/original/u4x6z8v0t2r1q9.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_silent_of_loop_36.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_silent_of_loop_36.png"
   },
   {
     id: 37,
@@ -584,13 +814,14 @@ export const movies = [
     category: "Thriller",
     type: "Feature Film",
     actors: [ 'Hannah Lee', 'Sophia Reyes' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=37x2y4",
     rating: 9.4,
     keywords: [ 'thriller', 'noir', 'suspense' ],
     kind: "R",
-    poster: "${TMDB}/w1y3u5r7t9z0x2.jpg",
-    backdrop: "${TMDB}/b_the_crimson_of_witness_37.jpg",
-    thumbnail: "${TMDB}/t_the_crimson_of_witness_37.png"
+    poster: "https://image.tmdb.org/t/p/original/w1y3u5r7t9z0x2.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_crimson_of_witness_37.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_crimson_of_witness_37.png"
   },
   {
     id: 38,
@@ -600,13 +831,14 @@ export const movies = [
     category: "Action",
     type: "Feature Film",
     actors: [ 'Jake Miller', 'David Chen' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=38z6a8",
     rating: 8.0,
     keywords: [ 'action', 'thriller', 'conspiracy' ],
     kind: "PG-13",
-    poster: "${TMDB}/e3g5i7k9l1m0n2.jpg",
-    backdrop: "${TMDB}/b_edge_of_tomorrow_38.jpg",
-    thumbnail: "${TMDB}/t_edge_of_tomorrow_38.png"
+    poster: "https://image.tmdb.org/t/p/original/e3g5i7k9l1m0n2.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_edge_of_tomorrow_38.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_edge_of_tomorrow_38.png"
   },
   {
     id: 39,
@@ -616,13 +848,14 @@ export const movies = [
     category: "Horror",
     type: "Feature Film",
     actors: [ 'Elias Vance', 'Anya Sharma' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=39b0c2",
     rating: 6.5,
     keywords: [ 'ghosts', 'suspense', 'ancient' ],
     kind: "R",
-    poster: "${TMDB}/c6d8f0j2k4l6m8.jpg",
-    backdrop: "${TMDB}/b_the_last_guard_39.jpg",
-    thumbnail: "${TMDB}/t_the_last_guard_39.png"
+    poster: "https://image.tmdb.org/t/p/original/c6d8f0j2k4l6m8.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_last_guard_39.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_last_guard_39.png"
   },
   {
     id: 40,
@@ -632,13 +865,14 @@ export const movies = [
     category: "Fantasy",
     type: "Feature Film",
     actors: [ 'Sophia Reyes', 'Marcus Trent' ],
+    video: "https://www.w3schools.com/html/mov_bbb.mp4",
     trailer: "https://www.themoviedb.org/video/play?key=40d4e6",
     rating: 9.2,
     keywords: [ 'magic', 'quest', 'mystery' ],
     kind: "PG",
-    poster: "${TMDB}/i1o3q5s7u9w0y2.jpg",
-    backdrop: "${TMDB}/b_the_celestial_of_vault_40.jpg",
-    thumbnail: "${TMDB}/t_the_celestial_of_vault_40.png"
+    poster: "https://image.tmdb.org/t/p/original/i1o3q5s7u9w0y2.jpg",
+    backdrop: "https://image.tmdb.org/t/p/original/b_the_celestial_of_vault_40.jpg",
+    thumbnail: "https://image.tmdb.org/t/p/original/t_the_celestial_of_vault_40.png"
   }
 ]
 export const series = movies.filter((movie) => movie.type === "Series")

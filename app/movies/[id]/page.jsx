@@ -3,7 +3,7 @@ import { movies } from "@/data/movie"
 import MovieDetailClient from "./MovieDetailClient"
 
 export default async function MovieDetailPage({ params }) {
-  const { id } = await params
+  const { id } = await params 
   const movieId = Number(id)
   const movie = movies.find((m) => Number(m.id) === movieId)
 

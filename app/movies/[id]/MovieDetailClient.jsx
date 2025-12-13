@@ -37,9 +37,9 @@ export default function MovieDetailClient({ movie }) {
   const isLiked = likedMovies.includes(movieId)
   const isSaved = watchLater.includes(movieId)
 
-  const relatedMoviesByCategory = allMovies.filter(
+  const relatedMoviesByCategory = allMovies ? allMovies.filter(
     (m) => m.category === movie.category && Number(m.id) !== movieId
-  )
+  ) : []
 
   return (
     <main className="max-w-6xl mx-auto py-10 px-4 animate-fadeIn">

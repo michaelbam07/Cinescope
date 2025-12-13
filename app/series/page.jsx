@@ -65,7 +65,7 @@ export default function SeriesPage() {
                             key={series.id}
                             className="transform transition-transform duration-300 hover:scale-105"
                         >
-                            <MovieCard movie={series} />
+                            <MovieCard item={series} />
                         </div>
                     ))}
                 </div>
