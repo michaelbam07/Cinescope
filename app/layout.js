@@ -8,8 +8,9 @@ import ProfileSelectorWrapper from "@/components/ProfileSelectorWrapper";
 import { MovieProvider } from "@/app/context/MovieContext";
 import { ThemeProvider } from "@/app/context/ThemeContext";
 import { ProfileProvider } from "@/app/context/ProfileContext";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from "@vercel/analytics/next"
+import { SpeedInsights } from "@vercel/speed-insights/next";
+import { Analytics } from "@vercel/analytics/next";
+import { PageTransition } from "@/components/PageTransition";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,20 +30,22 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable} antialiased`}>
-
+      <body
+        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+      >
         {/* Theme + Movie + Profile providers */}
-        <ThemeProvider>
-          <ProfileProvider>
-            <MovieProvider>
-              <ProfileSelectorWrapper />
-              <Header />
-              {children}
-              <Footer />
-            </MovieProvider>
-          </ProfileProvider>
-        </ThemeProvider>
-
+        <PageTransition>
+          <ThemeProvider>
+            <ProfileProvider>
+              <MovieProvider>
+                <ProfileSelectorWrapper />
+                <Header />
+                {children}
+                <Footer />
+              </MovieProvider>
+            </ProfileProvider>
+          </ThemeProvider>
+        </PageTransition>
       </body>
     </html>
   );

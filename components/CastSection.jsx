@@ -1,56 +1,52 @@
 "use client"
 
-import Image from "next/image"
+import { User } from "lucide-react"
+import { motion } from "framer-motion"
 
 export default function CastSection({ actors = [] }) {
-  if (!actors || actors.length === 0) {
-    return null
-  }
-
-  // Map of common actor names to placeholder colors/initials
-  const getActorInitials = (name) => {
-    if (!name) return "?"
-    return name
-      .split(" ")
-      .map((part) => part[0])
-      .join("")
-      .toUpperCase()
-  }
-
-  const getColorForActor = (name) => {
-    const colors = [
-      "bg-blue-500",
-      "bg-purple-500",
-      "bg-pink-500",
-      "bg-green-500",
-      "bg-amber-500",
-      "bg-red-500",
-      "bg-cyan-500",
-      "bg-indigo-500",
-    ]
-    const index = name.charCodeAt(0) % colors.length
-    return colors[index]
-  }
+  if (!actors || actors.length === 0) return null
 
   return (
-    <section className="mt-12 mb-8">
-      <h2 className="text-2xl md:text-3xl font-bold mb-6 text-(--color-primary)">
-        Cast
-      </h2>
-      <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
+    <section className="mt-16 mb-12 animate-fadeIn">
+      {/* Header with Cinematic Label */}
+      <div className="flex items-center gap-3 mb-8">
+        <div className="h-6 w-1 bg-primary rounded-full" />
+        <h2 className="text-2xl font-black tracking-tighter uppercase italic">
+          Starring Role
+        </h2>
+      </div>
+
+      <div className="flex flex-wrap gap-6 justify-start">
         {actors.map((actor, idx) => (
-          <div key={`${actor}-${idx}`} className="flex flex-col items-center text-center">
-            <div
-              className={`${getColorForActor(
-                actor
-              )} w-20 h-20 rounded-full flex items-center justify-center text-white font-bold text-2xl shadow-md`}
-            >
-              {getActorInitials(actor)}
+          <motion.div 
+            key={`${actor}-${idx}`}
+            whileHover={{ y: -5 }}
+            className="flex flex-col items-center group w-24"
+          >
+            {/* Avatar Container */}
+            <div className="relative w-20 h-20 mb-3">
+              {/* Decorative Outer Ring */}
+              <div className="absolute inset-0 rounded-full border border-white/5 group-hover:border-primary/50 transition-colors duration-500" />
+              
+              {/* Inner Circle Placeholder */}
+              <div className="absolute inset-1 rounded-full bg-gradient-to-br from-white/10 to-white/5 flex items-center justify-center overflow-hidden shadow-inner">
+                <User 
+                  className="text-white/20 group-hover:text-primary/40 transition-colors duration-500" 
+                  size={32} 
+                />
+                
+                {/* Subtle initials overlay */}
+                <span className="absolute inset-0 flex items-center justify-center text-[10px] font-black tracking-widest text-white/10 uppercase group-hover:text-white/40 transition-colors">
+                   {actor.split(" ").map(n => n[0]).join("")}
+                </span>
+              </div>
             </div>
-            <p className="mt-2 text-sm font-medium text-(--color-foreground) line-clamp-2">
+
+            {/* Actor Name */}
+            <p className="text-[11px] font-bold text-muted-foreground group-hover:text-foreground text-center uppercase tracking-wider transition-colors duration-300 leading-tight">
               {actor}
             </p>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

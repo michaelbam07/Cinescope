@@ -1,20 +1,20 @@
 "use client"
 
-import { useRef } from "react"
 import { useMovies } from "@/app/context/MovieContext"
+import { Play } from "lucide-react"
 
 export default function VideoProgressBar({ id, seasonNumber, episodeNumber, videoDuration = 0 }) {
   const { progress, updateProgress } = useMovies()
-  const videoRef = useRef(null)
 
-  // Build unique key for movies or series episodes
   const progressKey = seasonNumber && episodeNumber
     ? `${id}-${seasonNumber}-${episodeNumber}`
     : `${id}`
 
   const currentProgress = progress[progressKey] || { time: 0, duration: videoDuration }
+  
+  // Guard against division by zero
   const progressPercent = videoDuration > 0
-    ? (currentProgress.time / videoDuration) * 100
+    ? Math.min((currentProgress.time / videoDuration) * 100, 100)
     : 0
 
   const formatTime = (seconds) => {
@@ -24,44 +24,31 @@ export default function VideoProgressBar({ id, seasonNumber, episodeNumber, vide
     return `${mins}:${secs.toString().padStart(2, "0")}`
   }
 
-  const handleSeek = (e) => {
-    const rect = e.currentTarget.getBoundingClientRect()
-    const percent = (e.clientX - rect.left) / rect.width
-    const newTime = percent * videoDuration
-    updateProgress(progressKey, newTime, videoDuration)
-  }
-
-  if (progressPercent === 0) return null
+  // Only show if the user has actually started (e.g., more than 1%)
+  if (progressPercent < 1) return null
 
   return (
-    <div className="mt-4 p-4 bg-muted rounded-lg">
-      <div className="flex items-center justify-between mb-2">
-        <p className="text-sm font-medium text-foreground">Resume Video</p>
-        <p className="text-xs text-muted-foreground">
-          {formatTime(currentProgress.time)} / {formatTime(videoDuration)}
-        </p>
+    <div className="w-full space-y-2 animate-fadeIn">
+      {/* Label and Time */}
+      <div className="flex items-center justify-between px-1">
+        <div className="flex items-center gap-1.5">
+          <div className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
+          <span className="text-[10px] font-bold uppercase tracking-widest text-foreground/80">
+            Continue
+          </span>
+        </div>
+        <span className="text-[10px] font-medium text-muted-foreground tabular-nums">
+          {formatTime(currentProgress.time)} left
+        </span>
       </div>
 
-      {/* Progress bar */}
-      <div
-        onClick={handleSeek}
-        className="relative h-2 bg-muted-foreground/20 rounded-full cursor-pointer group"
-      >
-        {/* Filled portion */}
+      {/* Progress Track */}
+      <div className="relative h-1 w-full bg-white/10 rounded-full overflow-hidden">
         <div
-          className="h-full bg-primary rounded-full transition-all duration-200 group-hover:h-3"
+          className="h-full bg-primary transition-all duration-500 ease-out shadow-[0_0_8px_rgba(var(--primary),0.6)]"
           style={{ width: `${progressPercent}%` }}
         />
-        {/* Hover indicator */}
-        <div
-          className="absolute top-1/2 -translate-y-1/2 w-4 h-4 bg-primary rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity"
-          style={{ left: `calc(${progressPercent}% - 8px)` }}
-        />
       </div>
-
-      <p className="text-xs text-muted-foreground mt-2">
-        {Math.round(progressPercent)}% watched
-      </p>
     </div>
   )
 }

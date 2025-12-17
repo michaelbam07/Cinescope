@@ -3,6 +3,9 @@
 import { useParams } from "next/navigation"
 import Image from "next/image"
 import { useState, useEffect } from "react"
+import { motion, AnimatePresence } from "framer-motion"
+import { Play, RotateCcw, Clapperboard, Calendar } from "lucide-react"
+
 import { series } from "@/data/movie"
 import { useMovies } from "@/app/context/MovieContext"
 import VideoProgressBar from "@/components/VideoProgressBar"
@@ -14,148 +17,125 @@ export default function SeriesDetailPage() {
   const show = series.find((s) => s.id === Number(id))
   const [selectedSeason, setSelectedSeason] = useState(1)
 
-  // Auto-select first season
   useEffect(() => {
     if (show?.seasons?.length > 0) {
       setSelectedSeason(show.seasons[0].seasonNumber)
     }
   }, [show])
 
-  if (!show) {
-    return (
-      <main className="text-center mt-20 text-muted-foreground">
-        Series not found.
-      </main>
-    )
-  }
+  if (!show) return <main className="flex items-center justify-center h-screen uppercase font-black opacity-20 italic">Series not found</main>
 
-  const season = show.seasons?.find(
-    (s) => s.seasonNumber === selectedSeason
-  )
+  const season = show.seasons?.find((s) => s.seasonNumber === selectedSeason)
+  if (!season) return null
 
-  if (!season) {
-    return (
-      <main className="text-center mt-20 text-muted-foreground">
-        Season not found.
-      </main>
-    )
-  }
-
-  const getProgressKey = (ep) =>
-    `${show.id}-${selectedSeason}-${ep.episodeNumber}`
-
-  const getContinueTime = (ep) => {
-    const key = getProgressKey(ep)
-    return progress[key]?.time || 0
-  }
+  const getProgressKey = (ep) => `${show.id}-${selectedSeason}-${ep.episodeNumber}`
 
   return (
-    <main className="container mx-auto px-6 py-12 text-foreground animate-fadeIn">
-      {/* HEADER */}
-      <div className="flex gap-8 flex-col md:flex-row mb-12">
+    <main className="min-h-screen bg-background pb-20">
+      {/* 1. CINEMATIC BACKGROUND HEADER */}
+      <div className="relative h-[50vh] w-full">
         <Image
           src={show.backdrop || show.poster}
           alt={show.title}
-          width={320}
-          height={400}
-          className="rounded-xl shadow-xl object-cover"
+          fill
+          className="object-cover"
+          priority
         />
-
-        <div className="flex-1">
-          <h1 className="text-5xl font-extrabold text-primary">
-            {show.title}
-          </h1>
-
-          <p className="mt-4 text-muted-foreground leading-relaxed">
-            {show.epilogue}
-          </p>
-
-          <div className="mt-4 text-sm font-medium text-muted-foreground">
-            Category: {show.category}
-          </div>
-
-          {/* SEASONS */}
-          <div className="mt-8 flex flex-wrap gap-3">
-            {show.seasons.map((s) => (
-              <button
-                key={s.seasonNumber}
-                onClick={() => setSelectedSeason(s.seasonNumber)}
-                className={`px-5 py-2 text-sm rounded-lg border font-semibold transition-transform duration-200 ${selectedSeason === s.seasonNumber
-                    ? "bg-primary text-primary-foreground shadow-md scale-105"
-                    : "bg-muted text-foreground hover:scale-105 hover:shadow-sm"
-                  }`}
-              >
-                Season {s.seasonNumber}
-              </button>
-            ))}
-          </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-background/60 to-transparent" />
+        
+        <div className="absolute bottom-0 left-0 w-full px-6 md:px-24 pb-12">
+          <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
+             <h1 className="text-6xl md:text-8xl font-black uppercase tracking-tighter italic text-white leading-none mb-4">
+                {show.title}
+             </h1>
+             <div className="flex items-center gap-6 text-xs font-bold uppercase tracking-widest text-primary">
+                <span className="flex items-center gap-2"><Clapperboard size={14}/> {show.category}</span>
+                <span className="flex items-center gap-2"><Calendar size={14}/> {show.seasons.length} Seasons</span>
+             </div>
+          </motion.div>
         </div>
       </div>
 
-      {/* EPISODES */}
-      <h2 className="text-3xl font-bold mb-6">Episodes</h2>
-
-      {season.episodes?.length > 0 ? (
-        <div className="grid md:grid-cols-2 gap-8">
-          {season.episodes.map((ep) => {
-            const continueTime = getContinueTime(ep)
-            const progressKey = getProgressKey(ep)
-
-            return (
-              <div
-                key={ep.episodeNumber}
-                className="p-5 bg-card rounded-xl border border-border flex flex-col gap-3 hover:shadow-lg transition-all"
-              >
-                <Image
-                  src={ep.thumbnail || show.poster}
-                  alt={ep.title}
-                  width={200}
-                  height={120}
-                  className="rounded-lg object-cover"
-                />
-
-                <div className="flex-1 flex flex-col">
-                  <h3 className="text-lg font-semibold">
-                    {ep.episodeNumber}. {ep.title}
-                  </h3>
-
-                  <p className="text-sm text-muted-foreground">
-                    {ep.duration} mins
-                  </p>
-
-                  {/* Continue Watching Display */}
-                  {continueTime > 0 && (
-                    <p className="text-xs text-primary mt-1">
-                      Continue at {Math.floor(continueTime)}s
-                    </p>
-                  )}
-
-                  {/* Progress Bar */}
-                  {ep.duration > 0 && (
-                    <VideoProgressBar
-                      movieId={progressKey}
-                      videoDuration={ep.duration}
-                    />
-                  )}
-
-                  <button
-                    onClick={() =>
-                      openEpisodePlayer(show.id, selectedSeason, ep)
-                    }
-                    className="mt-auto bg-primary text-primary-foreground px-4 py-2 rounded-md text-sm font-medium hover:opacity-90 transition-all"
-                  >
-                    ▶ Play Episode
-                  </button>
-                </div>
-              </div>
-            )
-          })}
+      <div className="container mx-auto px-6 md:px-24">
+        {/* 2. SEASON SELECTOR */}
+        <div className="flex gap-4 mb-12 overflow-x-auto pb-4 scrollbar-hide">
+          {show.seasons.map((s) => (
+            <button
+              key={s.seasonNumber}
+              onClick={() => setSelectedSeason(s.seasonNumber)}
+              className={`flex-none px-8 py-3 rounded-full text-xs font-black uppercase tracking-widest transition-all ${
+                selectedSeason === s.seasonNumber 
+                  ? "bg-primary text-primary-foreground scale-105 shadow-[0_0_20px_rgba(var(--primary),0.3)]" 
+                  : "bg-white/5 text-white/40 hover:bg-white/10"
+              }`}
+            >
+              Season {s.seasonNumber}
+            </button>
+          ))}
         </div>
-      ) : (
-        <p className="text-center text-muted-foreground mt-6">
-          No episodes available for this season.
-        </p>
-      )}
+
+        {/* 3. EPISODES GRID */}
+        <h2 className="text-xs font-black uppercase tracking-[0.4em] text-white/30 mb-8 italic">Episode List</h2>
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <AnimatePresence mode="wait">
+            {season.episodes.map((ep, idx) => {
+              const progressKey = getProgressKey(ep)
+              const hasProgress = progress[progressKey]?.time > 0
+
+              return (
+                <motion.div
+                  key={ep.episodeNumber}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.05 }}
+                  className="group relative"
+                >
+                  {/* Thumbnail Card */}
+                  <div className="relative aspect-video rounded-2xl overflow-hidden glass-card border-white/5">
+                    <Image
+                      src={ep.thumbnail || show.poster}
+                      alt={ep.title}
+                      fill
+                      className="object-cover transition-transform duration-500 group-hover:scale-110"
+                    />
+                    
+                    {/* Play Overlay */}
+                    <div className="absolute inset-0 bg-black/60 opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center">
+                       <button 
+                        onClick={() => openEpisodePlayer(show.id, selectedSeason, ep)}
+                        className="w-16 h-16 rounded-full bg-primary text-primary-foreground flex items-center justify-center shadow-2xl transform scale-75 group-hover:scale-100 transition-transform"
+                       >
+                         {hasProgress ? <RotateCcw size={28} /> : <Play size={28} fill="currentColor" />}
+                       </button>
+                    </div>
+
+                    {/* Duration Badge */}
+                    <div className="absolute bottom-3 right-3 px-2 py-1 rounded bg-black/80 text-[10px] font-bold text-white uppercase tracking-tighter">
+                      {ep.duration}m
+                    </div>
+
+                    {/* Progress Bar (Integrated) */}
+                    <div className="absolute bottom-0 left-0 w-full px-2 pb-1">
+                       <VideoProgressBar movieId={progressKey} videoDuration={ep.duration} />
+                    </div>
+                  </div>
+
+                  {/* Episode Info */}
+                  <div className="mt-4">
+                    <span className="text-[10px] font-black text-primary uppercase italic tracking-widest">
+                      EPISODE {ep.episodeNumber}
+                    </span>
+                    <h3 className="text-lg font-bold text-white group-hover:text-primary transition-colors line-clamp-1">
+                      {ep.title}
+                    </h3>
+                  </div>
+                </motion.div>
+              )
+            })}
+          </AnimatePresence>
+        </div>
+      </div>
     </main>
   )
 }

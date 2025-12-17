@@ -1,16 +1,17 @@
 "use client"
 
 import { useProfile } from "@/app/context/ProfileContext"
+import { Plus, X, Trash2, User } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { useState } from "react"
 
 const COLORS = [
-  "bg-red-500",
-  "bg-blue-500",
-  "bg-green-500",
-  "bg-yellow-500",
-  "bg-purple-500",
-  "bg-pink-500",
-  "bg-cyan-500",
-  "bg-orange-500",
+  "from-red-500 to-orange-600",
+  "from-blue-500 to-cyan-600",
+  "from-emerald-500 to-teal-600",
+  "from-violet-500 to-purple-600",
+  "from-pink-500 to-rose-600",
+  "from-amber-400 to-orange-500",
 ]
 
 export default function ProfileSelector() {
@@ -20,78 +21,130 @@ export default function ProfileSelector() {
     switchProfile,
     addProfile,
     deleteProfile,
-    showProfileSelector,
     setShowProfileSelector,
   } = useProfile()
 
+  const [isAdding, setIsAdding] = useState(false)
+  const [newName, setNewName] = useState("")
+
+  const handleAddProfile = (e) => {
+    e.preventDefault()
+    if (newName.trim()) {
+      const randomColor = COLORS[Math.floor(Math.random() * COLORS.length)]
+      addProfile(newName.trim(), randomColor)
+      setNewName("")
+      setIsAdding(false)
+    }
+  }
+
   return (
-    <div className="fixed inset-0 bg-black/80 flex items-center justify-center z-50 p-4">
-      <div className="bg-(--color-card) rounded-2xl p-8 max-w-2xl w-full">
-        <h1 className="text-4xl font-bold text-(--color-foreground) mb-8 text-center">
-          Who's watching?
-        </h1>
+    <div className="fixed inset-0 bg-black/95 backdrop-blur-xl flex items-center justify-center z-[100] p-6">
+      <div className="max-w-4xl w-full">
+        <motion.h1 
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          className="text-5xl font-black text-white mb-16 text-center tracking-tighter italic"
+        >
+          WHO'S WATCHING?
+        </motion.h1>
 
-        <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mb-8">
-          {profiles.map((profile) => (
-            <div
-              key={profile.id}
-              className="text-center cursor-pointer group"
-              onClick={() => switchProfile(profile.id)}
-            >
-              <div className="relative mb-3 inline-block">
-                <div
-                  className={`${profile.color} w-24 h-24 rounded-lg flex items-center justify-center text-white text-4xl font-bold shadow-lg group-hover:ring-4 ring-white transition-all duration-300 group-hover:scale-110`}
+        <div className="flex flex-wrap justify-center gap-8 mb-16">
+          <AnimatePresence mode="popLayout">
+            {profiles.map((profile) => (
+              <motion.div
+                layout
+                initial={{ opacity: 0, scale: 0.8 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.5 }}
+                key={profile.id}
+                className="relative group text-center"
+              >
+                <div 
+                  onClick={() => switchProfile(profile.id)}
+                  className="relative cursor-pointer"
                 >
-                  {profile.initial}
+                  <div className={`w-32 h-32 rounded-2xl bg-gradient-to-br ${profile.color} flex items-center justify-center text-white text-5xl font-black shadow-2xl transition-all duration-300 group-hover:ring-4 group-hover:ring-primary group-hover:scale-105 active:scale-95 overflow-hidden relative`}>
+                    {profile.initial}
+                    {/* Glossy overlay */}
+                    <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-30" />
+                  </div>
+                  
+                  {currentProfileId === profile.id && (
+                    <motion.div 
+                      layoutId="active-profile"
+                      className="absolute -inset-2 border-2 border-primary rounded-[22px]"
+                    />
+                  )}
                 </div>
-                {currentProfileId === profile.id && (
-                  <div className="absolute inset-0 rounded-lg ring-4 ring-white" />
-                )}
-              </div>
-              <p className="text-(--color-foreground) font-medium text-sm">
-                {profile.name}
-              </p>
-              {profiles.length > 1 && (
-                <button
-                  onClick={(e) => {
-                    e.stopPropagation()
-                    deleteProfile(profile.id)
-                  }}
-                  className="text-xs text-(--color-muted-foreground) hover:text-(--color-destructive) opacity-0 group-hover:opacity-100 transition-opacity mt-1"
-                >
-                  Delete
-                </button>
-              )}
-            </div>
-          ))}
 
-          {profiles.length < 4 && (
-            <div
-              className="text-center cursor-pointer group"
-              onClick={() => {
-                const newName = prompt("Profile name:")
-                if (newName && newName.trim()) {
-                  const randomColor = COLORS[Math.floor(Math.random() * COLORS.length)]
-                  addProfile(newName.trim(), randomColor)
-                }
-              }}
-            >
-              <div className="bg-(--color-muted) w-24 h-24 rounded-lg flex items-center justify-center text-white text-4xl font-bold shadow-lg group-hover:ring-4 ring-white transition-all duration-300 group-hover:scale-110 group-hover:bg-(--color-muted-foreground)">
-                +
-              </div>
-              <p className="text-(--color-foreground) font-medium text-sm mt-3">
-                Add Profile
-              </p>
-            </div>
-          )}
+                <p className="mt-4 text-white/70 font-bold group-hover:text-white transition-colors uppercase tracking-widest text-xs">
+                  {profile.name}
+                </p>
+
+                {profiles.length > 1 && (
+                  <button
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      deleteProfile(profile.id)
+                    }}
+                    className="absolute -top-2 -right-2 p-1.5 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all hover:scale-110 shadow-lg"
+                  >
+                    <Trash2 size={14} />
+                  </button>
+                )}
+              </motion.div>
+            ))}
+
+            {profiles.length < 5 && !isAdding && (
+              <motion.div layout className="text-center group">
+                <button
+                  onClick={() => setIsAdding(true)}
+                  className="w-32 h-32 rounded-2xl bg-white/5 border-2 border-dashed border-white/10 flex items-center justify-center text-white/30 transition-all hover:border-white/40 hover:text-white hover:bg-white/10"
+                >
+                  <Plus size={48} strokeWidth={1} />
+                </button>
+                <p className="mt-4 text-white/30 font-bold uppercase tracking-widest text-xs">Add</p>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </div>
 
-        <button
-          onClick={() => setShowProfileSelector(false)}
-          className="w-full py-3 rounded-lg bg-(--color-muted) hover:bg-(--color-muted-foreground) text-(--color-foreground) font-medium transition-colors"
-        >
-          Close
-        </button>
+        {/* Add Profile Inline Form */}
+        <AnimatePresence>
+          {isAdding && (
+            <motion.form 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: 20 }}
+              onSubmit={handleAddProfile}
+              className="glass-card max-w-sm mx-auto p-6 rounded-2xl border border-white/10"
+            >
+              <h2 className="text-white font-bold mb-4 uppercase tracking-tighter">New Profile</h2>
+              <input
+                autoFocus
+                className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none focus:border-primary transition-all mb-4"
+                placeholder="Name"
+                value={newName}
+                onChange={(e) => setNewName(e.target.value)}
+              />
+              <div className="flex gap-2">
+                <button type="submit" className="flex-1 bg-primary text-white py-2 rounded-xl font-bold">Create</button>
+                <button onClick={() => setIsAdding(false)} className="px-4 bg-white/5 text-white py-2 rounded-xl font-bold">Cancel</button>
+              </div>
+            </motion.form>
+          )}
+        </AnimatePresence>
+
+        {!isAdding && (
+          <div className="mt-12 text-center">
+            <button
+              onClick={() => setShowProfileSelector(false)}
+              className="text-white/40 hover:text-white uppercase tracking-[0.3em] text-[10px] font-bold transition-colors"
+            >
+              [ Manage Profiles ]
+            </button>
+          </div>
+        )}
       </div>
     </div>
   )

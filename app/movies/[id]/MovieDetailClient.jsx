@@ -2,135 +2,139 @@
 
 import { useState } from "react"
 import Image from "next/image"
+import { motion, AnimatePresence } from "framer-motion"
+import { Play, Film, Plus, Heart, Check, Info } from "lucide-react"
+
 import { Button } from "@/components/ui/button"
 import { useMovies } from "@/app/context/MovieContext"
 import Reviews from "@/components/Reviews"
 import RelatedMovies from "@/components/RelatedMovies"
 import CastSection from "@/components/CastSection"
 import VideoProgressBar from "@/components/VideoProgressBar"
-import { movies as allMovies } from "@/data/movie"
 import VideoPlayer from "@/components/VideoPlayer"
+import { movies as allMovies } from "@/data/movie"
 
 export default function MovieDetailClient({ movie }) {
   const movieId = Number(movie.id)
   const { likedMovies, watchLater, toggleLike, toggleWatchLater } = useMovies()
-
-  const [movieOpen, setMovieOpen] = useState(false)
   const [activeVideo, setActiveVideo] = useState(null)
-
-  //Validate URL
-  const isValidUrl = (url) => {
-    if (!url || typeof url !== "string") return false
-    if (url.includes("${")) return false
-    try {
-      new URL(url)
-      return true
-    } catch {
-      return false
-    }
-  }
-
-  const validPoster = isValidUrl(movie.backdrop) ? movie.backdrop : null
-  const validTrailer = isValidUrl(movie.trailer) ? movie.trailer : null
-  const validVideo = isValidUrl(movie.video) ? movie.video : null
 
   const isLiked = likedMovies.includes(movieId)
   const isSaved = watchLater.includes(movieId)
 
-  const relatedMoviesByCategory = allMovies ? allMovies.filter(
+  const relatedMovies = allMovies?.filter(
     (m) => m.category === movie.category && Number(m.id) !== movieId
-  ) : []
+  ) || []
 
   return (
-    <main className="max-w-6xl mx-auto py-10 px-4 animate-fadeIn">
-
-      {/* IMAGE / PREVIEW */}
-      <div className="w-full h-[450px] overflow-hidden rounded-xl shadow-lg bg-(--color-card)">
-        {validPoster ? (
+    <div className="min-h-screen bg-background pb-20">
+      {/* 1. IMMERSIVE HERO HEADER */}
+      <section className="relative h-[70vh] w-full overflow-hidden">
+        <motion.div 
+          initial={{ scale: 1.1, opacity: 0 }}
+          animate={{ scale: 1, opacity: 1 }}
+          transition={{ duration: 1.5 }}
+          className="absolute inset-0"
+        >
           <Image
-            src={validPoster}
+            src={movie.backdrop || movie.poster}
             alt={movie.title}
-            width={1000}
-            height={600}
-            className="w-full h-full object-cover"
+            fill
+            priority
+            className="object-cover"
           />
-        ) : (
-          <div className="w-full h-full bg-(--color-muted) flex items-center justify-center">
-            <p className="text-(--color-muted-foreground)">No preview available</p>
+          {/* Cinematic Vignette */}
+          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/40 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent" />
+        </motion.div>
+
+        <div className="absolute inset-0 flex flex-col justify-end px-6 md:px-24 pb-12">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.5 }}
+            className="max-w-3xl space-y-6"
+          >
+            <div className="flex items-center gap-4 text-primary font-black tracking-widest text-xs uppercase">
+              <span className="px-2 py-1 border border-primary rounded-sm">{movie.category}</span>
+              <span>{movie.dateReleased}</span>
+              <span className="flex items-center gap-1"><Heart size={12} fill="currentColor" /> {movie.rating}</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-7xl font-black tracking-tighter uppercase italic leading-none text-white">
+              {movie.title}
+            </h1>
+            
+            <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl font-medium">
+              {movie.epilogue}
+            </p>
+
+            <div className="flex flex-wrap gap-4 pt-4">
+              <Button
+                onClick={() => setActiveVideo(movie.video)}
+                className="h-14 px-8 rounded-full bg-primary text-primary-foreground font-black uppercase tracking-widest text-xs hover:scale-105 transition-all gap-2"
+              >
+                <Play size={18} fill="currentColor" /> Play Movie
+              </Button>
+              
+              <Button
+                variant="outline"
+                onClick={() => setActiveVideo(movie.trailer)}
+                className="h-14 px-8 rounded-full border-white/10 glass-card text-white uppercase tracking-widest text-xs gap-2"
+              >
+                <Film size={18} /> Trailer
+              </Button>
+
+              <button 
+                onClick={() => toggleWatchLater(movieId)}
+                className={`w-14 h-14 rounded-full flex items-center justify-center transition-all border ${isSaved ? 'bg-primary border-primary text-primary-foreground' : 'bg-white/5 border-white/10 text-white'}`}
+              >
+                {isSaved ? <Check size={24} /> : <Plus size={24} />}
+              </button>
+
+              <button 
+                onClick={() => toggleLike(movieId)}
+                className={`w-14 h-14 rounded-full flex items-center justify-center transition-all border ${isLiked ? 'bg-red-500 border-red-500 text-white' : 'bg-white/5 border-white/10 text-white'}`}
+              >
+                <Heart size={24} fill={isLiked ? "currentColor" : "none"} />
+              </button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* 2. PROGRESS & CONTENT BODY */}
+      <div className="container mx-auto px-6 md:px-24 -mt-1 relative z-10">
+        <div className="glass-card border-white/5 rounded-2xl p-1 mb-12">
+           <VideoProgressBar movieId={movieId} videoDuration={7200} />
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-16">
+          {/* Main Content Column */}
+          <div className="lg:col-span-2 space-y-16">
+            <CastSection actors={movie.actors} />
+            <Reviews movieId={movieId} />
           </div>
-        )}
+
+          {/* Sidebar Column */}
+          <aside className="space-y-12">
+            <div className="space-y-4">
+               <h3 className="text-xs font-black uppercase tracking-[0.3em] text-primary italic">Recommended</h3>
+               <RelatedMovies movies={relatedMovies} currentMovieId={movieId} />
+            </div>
+          </aside>
+        </div>
       </div>
 
-      {/* VIDEO PROGRESS */}
-      <VideoProgressBar movieId={movieId} videoDuration={7200} />
-
-      {/* DETAILS */}
-      <section className="mt-6">
-        <h1 className="text-4xl font-bold">{movie.title}</h1>
-        <p className="mt-2 text-lg text-(--color-muted-foreground)">
-          {movie.epilogue}
-        </p>
-      </section>
-
-      {/* ACTION BUTTONS */}
-      <section className="mt-10 flex flex-wrap gap-4">
-
-        {/* PLAY MOVIE */}
-        <Button
-          onClick={() => { setActiveVideo(validVideo); setMovieOpen(true)}}
-          disabled={!validVideo}
-          className="px-6 py-3 text-lg bg-(--color-primary) text-(--color-primary-foreground)
-  hover:bg-(--color-primary-foreground) hover:text-(--color-primary) transition-all transform hover:scale-105"
-        >
-          {validVideo ? "▶ Play" : "No Movie Available"}
-        </Button>
-
-
-        {/* PLAY TRAILER */}
-        <Button
-          disabled={!validTrailer}
-          onClick={() => setActiveVideo(validTrailer)}
-          className="px-6 py-3 text-lg bg-(--color-secondary) text-white hover:scale-105 transition"
-        >
-          🎬 Play Trailer
-        </Button>
-
-        {/* WATCHLIST */}
-        <Button
-          onClick={() => toggleWatchLater(movieId)}
-          className={isSaved ? "bg-(--color-accent) text-white" : "bg-(--color-muted)"}
-        >
-          {isSaved ? "Remove from Watchlist" : "Add to Watchlist"}
-        </Button>
-
-        {/* LIKE */}
-        <Button
-          onClick={() => toggleLike(movieId)}
-          className={isLiked ? "bg-red-600 text-white" : "bg-(--color-muted)"}
-        >
-          {isLiked ? "❤️ Liked" : "❤️ Add to Favorites"}
-        </Button>
-      </section>
-
-      {/* CAST */}
-      {movie.actors && <CastSection actors={movie.actors} />}
-
-      {/* RELATED */}
-      <RelatedMovies
-        movies={relatedMoviesByCategory}
-        currentMovieId={movieId}
-      />
-
-      {/* REVIEWS */}
-      <Reviews movieId={movieId} />
-
-      {/* VIDEO PLAYER MODAL */}
-      {activeVideo && (
-        <VideoPlayer
-          src={activeVideo}
-          onClose={() => setActiveVideo(null)}
-        />
-      )}
-    </main>
+      {/* 3. VIDEO MODAL */}
+      <AnimatePresence>
+        {activeVideo && (
+          <VideoPlayer
+            src={activeVideo}
+            onClose={() => setActiveVideo(null)}
+          />
+        )}
+      </AnimatePresence>
+    </div>
   )
 }
