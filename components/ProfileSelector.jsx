@@ -1,7 +1,7 @@
 "use client"
 
 import { useProfile } from "@/app/context/ProfileContext"
-import { Plus, X, Trash2, User } from "lucide-react"
+import { Plus, X, Trash2, Check } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { useState } from "react"
 
@@ -38,114 +38,146 @@ export default function ProfileSelector() {
   }
 
   return (
-    <div className="fixed inset-0 bg-black/95 backdrop-blur-xl flex items-center justify-center z-[100] p-6">
-      <div className="max-w-4xl w-full">
-        <motion.h1 
-          initial={{ opacity: 0, y: -20 }}
+    <motion.div 
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+      className="fixed inset-0 bg-background/95 backdrop-blur-2xl flex items-center justify-center z-[100] p-6 overflow-hidden"
+    >
+      {/* Background Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/10 blur-[120px] rounded-full pointer-events-none" />
+
+      {/* Close Button */}
+      <button 
+        onClick={() => setShowProfileSelector(false)}
+        className="absolute top-10 right-10 text-white/20 hover:text-white transition-colors"
+      >
+        <X size={40} strokeWidth={1} />
+      </button>
+
+      <div className="max-w-5xl w-full relative z-10">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-5xl font-black text-white mb-16 text-center tracking-tighter italic"
+          className="text-center mb-20"
         >
-          WHO'S WATCHING?
-        </motion.h1>
+          <h1 className="text-6xl md:text-8xl font-black text-white tracking-tighter uppercase italic leading-none">
+            Who is <span className="text-primary">Watching?</span>
+          </h1>
+          <p className="text-white/20 font-bold tracking-[0.4em] uppercase text-[10px] mt-4">
+            Select a profile to customize your experience
+          </p>
+        </motion.div>
 
-        <div className="flex flex-wrap justify-center gap-8 mb-16">
+        <div className="flex flex-wrap justify-center gap-10 md:gap-14 mb-16">
           <AnimatePresence mode="popLayout">
-            {profiles.map((profile) => (
-              <motion.div
-                layout
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                exit={{ opacity: 0, scale: 0.5 }}
-                key={profile.id}
-                className="relative group text-center"
-              >
-                <div 
-                  onClick={() => switchProfile(profile.id)}
-                  className="relative cursor-pointer"
+            {profiles.map((profile) => {
+              const isActive = currentProfileId === profile.id;
+              return (
+                <motion.div
+                  layout
+                  initial={{ opacity: 0, scale: 0.8 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  exit={{ opacity: 0, scale: 0.5 }}
+                  key={profile.id}
+                  className="relative group flex flex-col items-center"
                 >
-                  <div className={`w-32 h-32 rounded-2xl bg-gradient-to-br ${profile.color} flex items-center justify-center text-white text-5xl font-black shadow-2xl transition-all duration-300 group-hover:ring-4 group-hover:ring-primary group-hover:scale-105 active:scale-95 overflow-hidden relative`}>
-                    {profile.initial}
-                    {/* Glossy overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-30" />
-                  </div>
-                  
-                  {currentProfileId === profile.id && (
-                    <motion.div 
-                      layoutId="active-profile"
-                      className="absolute -inset-2 border-2 border-primary rounded-[22px]"
-                    />
-                  )}
-                </div>
-
-                <p className="mt-4 text-white/70 font-bold group-hover:text-white transition-colors uppercase tracking-widest text-xs">
-                  {profile.name}
-                </p>
-
-                {profiles.length > 1 && (
-                  <button
-                    onClick={(e) => {
-                      e.stopPropagation()
-                      deleteProfile(profile.id)
-                    }}
-                    className="absolute -top-2 -right-2 p-1.5 bg-red-500 text-white rounded-full opacity-0 group-hover:opacity-100 transition-all hover:scale-110 shadow-lg"
+                  <button 
+                    onClick={() => switchProfile(profile.id)}
+                    className="relative"
                   >
-                    <Trash2 size={14} />
+                    <div className={`w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-gradient-to-br ${profile.color} flex items-center justify-center text-white text-6xl font-black shadow-2xl transition-all duration-500 group-hover:scale-105 active:scale-95 overflow-hidden relative border-4 ${isActive ? 'border-primary' : 'border-transparent'}`}>
+                      {profile.initial}
+                      <div className="absolute inset-0 bg-gradient-to-tr from-white/20 to-transparent opacity-30" />
+                      
+                      {isActive && (
+                        <div className="absolute top-2 right-2 bg-white text-primary rounded-full p-1 shadow-lg">
+                          <Check size={16} strokeWidth={4} />
+                        </div>
+                      )}
+                    </div>
                   </button>
-                )}
-              </motion.div>
-            ))}
+
+                  <p className={`mt-6 font-black uppercase tracking-[0.2em] text-[11px] transition-all duration-300 ${isActive ? 'text-primary' : 'text-white/40 group-hover:text-white'}`}>
+                    {profile.name}
+                  </p>
+
+                  {profiles.length > 1 && (
+                    <button
+                      onClick={(e) => {
+                        e.stopPropagation()
+                        deleteProfile(profile.id)
+                      }}
+                      className="absolute -top-3 -right-3 p-2 bg-black border border-white/10 text-white/40 rounded-xl opacity-0 group-hover:opacity-100 transition-all hover:text-red-500 hover:border-red-500/50 shadow-2xl"
+                    >
+                      <Trash2 size={16} />
+                    </button>
+                  )}
+                </motion.div>
+              )
+            })}
 
             {profiles.length < 5 && !isAdding && (
-              <motion.div layout className="text-center group">
+              <motion.div layout className="flex flex-col items-center group">
                 <button
                   onClick={() => setIsAdding(true)}
-                  className="w-32 h-32 rounded-2xl bg-white/5 border-2 border-dashed border-white/10 flex items-center justify-center text-white/30 transition-all hover:border-white/40 hover:text-white hover:bg-white/10"
+                  className="w-32 h-32 md:w-40 md:h-40 rounded-3xl bg-white/5 border-2 border-dashed border-white/10 flex items-center justify-center text-white/10 transition-all hover:border-primary/50 hover:text-primary hover:bg-primary/5"
                 >
-                  <Plus size={48} strokeWidth={1} />
+                  <Plus size={50} strokeWidth={1} />
                 </button>
-                <p className="mt-4 text-white/30 font-bold uppercase tracking-widest text-xs">Add</p>
+                <p className="mt-6 text-white/10 font-black uppercase tracking-[0.2em] text-[11px] group-hover:text-white transition-colors">Add Profile</p>
               </motion.div>
             )}
           </AnimatePresence>
         </div>
 
-        {/* Add Profile Inline Form */}
-        <AnimatePresence>
-          {isAdding && (
-            <motion.form 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              onSubmit={handleAddProfile}
-              className="glass-card max-w-sm mx-auto p-6 rounded-2xl border border-white/10"
-            >
-              <h2 className="text-white font-bold mb-4 uppercase tracking-tighter">New Profile</h2>
-              <input
-                autoFocus
-                className="w-full bg-white/5 border border-white/10 rounded-xl p-3 text-white outline-none focus:border-primary transition-all mb-4"
-                placeholder="Name"
-                value={newName}
-                onChange={(e) => setNewName(e.target.value)}
-              />
-              <div className="flex gap-2">
-                <button type="submit" className="flex-1 bg-primary text-white py-2 rounded-xl font-bold">Create</button>
-                <button onClick={() => setIsAdding(false)} className="px-4 bg-white/5 text-white py-2 rounded-xl font-bold">Cancel</button>
-              </div>
-            </motion.form>
-          )}
-        </AnimatePresence>
-
-        {!isAdding && (
-          <div className="mt-12 text-center">
-            <button
-              onClick={() => setShowProfileSelector(false)}
-              className="text-white/40 hover:text-white uppercase tracking-[0.3em] text-[10px] font-bold transition-colors"
-            >
-              [ Manage Profiles ]
-            </button>
-          </div>
-        )}
+        {/* Form & Management Toggle */}
+        <div className="h-24"> {/* Height fix to prevent jump */}
+          <AnimatePresence mode="wait">
+            {isAdding ? (
+              <motion.form 
+                key="add-form"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.9 }}
+                onSubmit={handleAddProfile}
+                className="max-w-sm mx-auto flex items-center gap-3"
+              >
+                <input
+                  autoFocus
+                  className="flex-1 bg-white/5 border border-white/10 rounded-2xl p-4 text-white outline-none focus:border-primary transition-all font-bold"
+                  placeholder="Profile Name"
+                  value={newName}
+                  onChange={(e) => setNewName(e.target.value)}
+                />
+                <button type="submit" className="bg-primary text-white p-4 rounded-2xl font-black">
+                  <Check size={24} />
+                </button>
+                <button 
+                  type="button"
+                  onClick={() => setIsAdding(false)} 
+                  className="bg-white/5 text-white p-4 rounded-2xl"
+                >
+                  <X size={24} />
+                </button>
+              </motion.form>
+            ) : (
+              <motion.div 
+                key="manage-btn"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                className="text-center"
+              >
+                <button
+                  className="px-10 py-4 border border-white/10 text-white/40 hover:text-white hover:border-white uppercase tracking-[0.4em] text-[10px] font-black transition-all rounded-full hover:bg-white/5"
+                >
+                  Manage Profiles
+                </button>
+              </motion.div>
+            )}
+          </AnimatePresence>
+        </div>
       </div>
-    </div>
+    </motion.div>
   )
 }

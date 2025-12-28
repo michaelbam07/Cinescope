@@ -1,10 +1,24 @@
 "use client"
 
-import { useState } from "react"
-import { Search, X } from "lucide-react" // Modern icons
+import { useState, useEffect, useRef } from "react"
+import { Search, X, Command } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
 
 export default function SearchBar({ onSearch }) {
   const [query, setQuery] = useState("")
+  const inputRef = useRef(null)
+
+  // Keyboard shortcut listener (CMD/CTRL + K to focus)
+  useEffect(() => {
+    const handleKeyDown = (e) => {
+      if ((e.metaKey || e.ctrlKey) && e.key === "k") {
+        e.preventDefault()
+        inputRef.current?.focus()
+      }
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [])
 
   const handleChange = (e) => {
     const val = e.target.value
@@ -15,38 +29,58 @@ export default function SearchBar({ onSearch }) {
   const clearSearch = () => {
     setQuery("")
     onSearch("")
+    inputRef.current?.focus()
   }
 
   return (
-    <div className="relative w-full max-w-2xl mx-auto mb-10 group">
-      {/* Search Icon */}
-      <div className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground group-focus-within:text-primary transition-colors">
-        <Search size={20} />
+    <motion.div 
+      initial={{ opacity: 0, y: -10 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="relative w-full max-w-2xl mx-auto mb-12 group"
+    >
+      {/* Search Icon with Animated Pulse */}
+      <div className="absolute left-5 top-1/2 -translate-y-1/2 z-10">
+        <Search 
+          size={18} 
+          className="text-muted-foreground group-focus-within:text-primary group-focus-within:scale-110 transition-all duration-300" 
+        />
       </div>
 
       <input
+        ref={inputRef}
         type="text"
-        placeholder="Search movies, actors, or genres..."
+        placeholder="Search titles, cast, or genres..."
         value={query}
         onChange={handleChange}
-        className="w-full pl-12 pr-12 py-4 bg-card/40 backdrop-blur-md border border-white/10 rounded-2xl 
-                   text-foreground placeholder:text-muted-foreground outline-none transition-all
-                   focus:ring-2 focus:ring-primary/40 focus:border-primary/50 focus:bg-card/60
-                   hover:bg-card/50 shadow-lg"
+        className="w-full pl-14 pr-24 py-5 bg-white/[0.03] backdrop-blur-xl border border-white/10 rounded-2xl 
+                   text-white placeholder:text-white/20 outline-none transition-all duration-500
+                   focus:bg-white/[0.07] focus:border-primary/40 focus:ring-4 focus:ring-primary/5
+                   group-hover:bg-white/[0.05] group-hover:border-white/20 shadow-2xl"
       />
 
-      {/* Clear Button (Visible only when there is a query) */}
-      {query && (
-        <button
-          onClick={clearSearch}
-          className="absolute right-4 top-1/2 -translate-y-1/2 p-1 rounded-full hover:bg-white/10 text-muted-foreground hover:text-foreground transition-all"
-        >
-          <X size={18} />
-        </button>
-      )}
+      {/* Right-side Utilities */}
+      <div className="absolute right-5 top-1/2 -translate-y-1/2 flex items-center gap-3">
+        <AnimatePresence>
+          {query ? (
+            <motion.button
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.8 }}
+              onClick={clearSearch}
+              className="p-1.5 rounded-lg bg-white/10 text-white/60 hover:text-white hover:bg-red-500/20 transition-all"
+            >
+              <X size={16} />
+            </motion.button>
+          ) : (
+            <div className="hidden md:flex items-center gap-1 px-2 py-1 rounded border border-white/10 bg-white/5 text-[10px] font-black text-white/30 uppercase tracking-tighter">
+              <Command size={10} /> K
+            </div>
+          )}
+        </AnimatePresence>
+      </div>
 
-      {/* Subtle bottom glow effect */}
-      <div className="absolute -bottom-px left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary/50 to-transparent opacity-0 group-focus-within:opacity-100 transition-opacity" />
-    </div>
+      {/* Brutalist Focus Border (Bottom Only) */}
+      <div className="absolute -bottom-0 left-6 right-6 h-[2px] bg-gradient-to-r from-transparent via-primary to-transparent opacity-0 group-focus-within:opacity-100 blur-[2px] transition-all duration-700" />
+    </motion.div>
   )
 }

@@ -1,34 +1,50 @@
-'use client'
+"use client"
 
-/**
- * MovieCardSkeleton - A skeleton loader for movie cards
- * Shows a shimmer animation while content is loading
- */
+import { motion } from "framer-motion"
+
+// Helper for the shimmer animation
+const Shimmer = () => (
+  <motion.div
+    initial={{ x: "-100%" }}
+    animate={{ x: "100%" }}
+    transition={{
+      repeat: Infinity,
+      duration: 1.5,
+      ease: "linear",
+    }}
+    className="absolute inset-0 bg-gradient-to-r from-transparent via-white/[0.05] to-transparent z-10"
+  />
+)
+
 export function MovieCardSkeleton() {
   return (
-    <div className="flex flex-col gap-3">
-      {/* Poster skeleton */}
-      <div className="relative overflow-hidden rounded-lg aspect-2/3 bg-(--color-muted) animate-shimmer" />
+    <div className="flex flex-col gap-4">
+      {/* Poster skeleton with the same aspect ratio as MovieCard */}
+      <div className="relative overflow-hidden rounded-2xl aspect-[2/3] bg-white/5 border border-white/5">
+        <Shimmer />
+      </div>
       
       {/* Title skeleton */}
-      <div className="h-4 bg-(--color-muted) rounded animate-shimmer" />
+      <div className="relative overflow-hidden h-5 bg-white/5 rounded-md w-4/5">
+        <Shimmer />
+      </div>
       
-      {/* Rating/metadata skeleton */}
-      <div className="flex justify-between items-center gap-2">
-        <div className="h-3 bg-(--color-muted) rounded w-16 animate-shimmer" />
-        <div className="h-3 bg-(--color-muted) rounded w-12 animate-shimmer" />
+      {/* Metadata skeleton */}
+      <div className="flex justify-between items-center">
+        <div className="relative overflow-hidden h-3 bg-white/5 rounded w-1/4">
+          <Shimmer />
+        </div>
+        <div className="relative overflow-hidden h-3 bg-white/5 rounded w-1/6">
+          <Shimmer />
+        </div>
       </div>
     </div>
   )
 }
 
-/**
- * MovieGridSkeleton - Skeleton loader for movie grid
- * Shows multiple skeleton cards in a grid layout
- */
-export function MovieGridSkeleton({ count = 12 }) {
+export function MovieGridSkeleton({ count = 10 }) {
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-6">
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 md:gap-10">
       {Array.from({ length: count }).map((_, i) => (
         <MovieCardSkeleton key={i} />
       ))}
@@ -36,48 +52,45 @@ export function MovieGridSkeleton({ count = 12 }) {
   )
 }
 
-/**
- * MovieDetailSkeleton - Skeleton loader for movie detail page
- * Shows skeleton for poster, title, and metadata
- */
 export function MovieDetailSkeleton() {
   return (
-    <div className="grid md:grid-cols-3 gap-8 mb-12">
-      {/* Poster skeleton */}
-      <div className="md:col-span-1">
-        <div className="aspect-2/3 bg-(--color-muted) rounded-lg animate-shimmer" />
-      </div>
-
-      {/* Details skeleton */}
-      <div className="md:col-span-2 space-y-6">
-        {/* Title */}
-        <div className="space-y-2">
-          <div className="h-8 bg-(--color-muted) rounded w-3/4 animate-shimmer" />
-          <div className="h-4 bg-(--color-muted) rounded w-1/2 animate-shimmer" />
-        </div>
-
-        {/* Rating section */}
-        <div className="space-y-3">
-          <div className="h-4 bg-(--color-muted) rounded w-20 animate-shimmer" />
-          <div className="flex gap-2">
-            {Array.from({ length: 5 }).map((_, i) => (
-              <div key={i} className="h-5 bg-(--color-muted) rounded-full w-5 animate-shimmer" />
-            ))}
+    <div className="container mx-auto px-6 pt-32">
+      <div className="grid lg:grid-cols-12 gap-12">
+        {/* Poster Skeleton */}
+        <div className="lg:col-span-4">
+          <div className="relative aspect-[2/3] bg-white/5 rounded-3xl overflow-hidden border border-white/10">
+            <Shimmer />
           </div>
         </div>
 
-        {/* Description */}
-        <div className="space-y-2">
-          {Array.from({ length: 4 }).map((_, i) => (
-            <div key={i} className="h-4 bg-(--color-muted) rounded w-full animate-shimmer" />
-          ))}
-          <div className="h-4 bg-(--color-muted) rounded w-3/4 animate-shimmer" />
-        </div>
+        {/* Info Skeleton */}
+        <div className="lg:col-span-8 space-y-8">
+          <div className="space-y-4">
+            {/* Category Tag */}
+            <div className="relative overflow-hidden h-4 bg-primary/20 rounded w-24"><Shimmer /></div>
+            {/* Title */}
+            <div className="relative overflow-hidden h-20 bg-white/5 rounded-xl w-3/4"><Shimmer /></div>
+            {/* Metadata Line */}
+            <div className="flex gap-4">
+              <div className="relative overflow-hidden h-4 bg-white/5 rounded w-16"><Shimmer /></div>
+              <div className="relative overflow-hidden h-4 bg-white/5 rounded w-16"><Shimmer /></div>
+            </div>
+          </div>
 
-        {/* Buttons */}
-        <div className="flex gap-4">
-          <div className="h-10 bg-(--color-muted) rounded w-32 animate-shimmer" />
-          <div className="h-10 bg-(--color-muted) rounded w-32 animate-shimmer" />
+          {/* Description Lines */}
+          <div className="space-y-3 pt-4">
+            {[...Array(4)].map((_, i) => (
+              <div key={i} className="relative overflow-hidden h-4 bg-white/5 rounded w-full">
+                <Shimmer />
+              </div>
+            ))}
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex gap-4 pt-6">
+            <div className="relative overflow-hidden h-14 bg-white/10 rounded-full w-44"><Shimmer /></div>
+            <div className="relative overflow-hidden h-14 bg-white/5 rounded-full w-14"><Shimmer /></div>
+          </div>
         </div>
       </div>
     </div>

@@ -2,13 +2,16 @@
 
 import Link from 'next/link'
 import { useState, useEffect } from 'react'
+import { usePathname } from 'next/navigation'
 import { HiMenu, HiX } from 'react-icons/hi'
+import { motion, AnimatePresence } from 'framer-motion'
 import { ThemeToggle } from '@/components/ThemeToggle'
 import ProfileButton from '@/components/ProfileButton'
 
 const Header = () => {
   const [mobileOpen, setMobileOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
+  const pathname = usePathname()
 
   // Dynamic background on scroll
   useEffect(() => {
@@ -29,75 +32,108 @@ const Header = () => {
 
   return (
     <header 
-      className={`fixed top-0 w-full z-50 transition-all duration-300 ${
+      className={`fixed top-0 w-full z-50 transition-all duration-500 ${
         isScrolled 
-          ? 'bg-background/70 backdrop-blur-md border-b border-white/10 py-3' 
-          : 'bg-transparent py-5'
+          ? 'bg-background/60 backdrop-blur-xl border-b border-white/5 py-3' 
+          : 'bg-transparent py-6'
       }`}
     >
       <div className="container mx-auto px-6 flex justify-between items-center">
         
-        {/* Logo with a tighter, more modern font weight */}
-        <Link href="/" className="text-2xl font-black tracking-tighter hover:opacity-80 transition-opacity">
-          CINE<span className="text-primary">SCOPE</span>
+        {/* Logo - Bold, Italic, Brutalist */}
+        <Link href="/" className="group flex items-center gap-2">
+          <div className="w-8 h-8 bg-primary rounded-lg flex items-center justify-center rotate-3 group-hover:rotate-0 transition-transform">
+             <span className="text-white font-black italic text-xs">C</span>
+          </div>
+          <span className="text-2xl font-black tracking-tighter uppercase italic leading-none">
+            CINE<span className="text-primary group-hover:text-foreground transition-colors">SCOPE</span>
+          </span>
         </Link>
 
         {/* Desktop Navbar */}
         <nav className="hidden md:block">
-          <ul className="flex items-center space-x-8">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link 
-                  href={link.href} 
-                  className="text-sm font-medium text-foreground/80 hover:text-primary transition-colors duration-200 relative group"
-                >
-                  {link.name}
-                  {/* Underline animated effect */}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-                </Link>
-              </li>
-            ))}
-            <li className="flex items-center gap-4 pl-4 border-l border-white/10">
+          <ul className="flex items-center space-x-10">
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href
+              return (
+                <li key={link.name}>
+                  <Link 
+                    href={link.href} 
+                    className={`text-[11px] font-black uppercase tracking-[0.2em] transition-all duration-300 relative group ${
+                      isActive ? 'text-primary' : 'text-foreground/60 hover:text-foreground'
+                    }`}
+                  >
+                    {link.name}
+                    {/* Active/Hover Indicator */}
+                    <span className={`absolute -bottom-2 left-0 h-[2px] bg-primary transition-all duration-300 ${
+                      isActive ? 'w-full' : 'w-0 group-hover:w-full'
+                    }`} />
+                  </Link>
+                </li>
+              )
+            })}
+            
+            <li className="flex items-center gap-6 pl-8 border-l border-white/10">
               <ThemeToggle />
               <ProfileButton />
             </li>
           </ul>
         </nav>
 
-        {/* Mobile Controls */}
+        {/* Mobile Toggle */}
         <div className="md:hidden flex items-center gap-4">
           <ThemeToggle />
           <button 
             onClick={() => setMobileOpen(!mobileOpen)} 
-            className="p-2 rounded-lg bg-white/5 border border-white/10"
+            className="text-foreground p-1"
             aria-label="Toggle menu"
           >
-            {mobileOpen ? <HiX className="w-6 h-6" /> : <HiMenu className="w-6 h-6" />}
+            {mobileOpen ? <HiX size={28} /> : <HiMenu size={28} />}
           </button>
         </div>
       </div>
 
-      {/* Mobile Menu - Full Screen Overlay Style */}
-      {mobileOpen && (
-        <nav className="md:hidden fixed inset-0 top-[60px] bg-background/95 backdrop-blur-xl z-40 animate-fadeIn">
-          <ul className="flex flex-col items-center justify-center space-y-8 h-full pb-20">
-            {navLinks.map((link) => (
-              <li key={link.name}>
-                <Link 
-                  href={link.href} 
-                  onClick={() => setMobileOpen(false)}
-                  className="text-2xl font-bold hover:text-primary transition-colors"
+      {/* Mobile Menu Overlay */}
+      <AnimatePresence>
+        {mobileOpen && (
+          <motion.nav 
+            initial={{ opacity: 0, x: '100%' }}
+            animate={{ opacity: 1, x: 0 }}
+            exit={{ opacity: 0, x: '100%' }}
+            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+            className="md:hidden fixed inset-0 top-0 bg-background/98 backdrop-blur-2xl z-[-1] flex flex-col items-center justify-center"
+          >
+            <ul className="space-y-10 text-center">
+              {navLinks.map((link, idx) => (
+                <motion.li 
+                  key={link.name}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: idx * 0.1 }}
                 >
-                  {link.name}
-                </Link>
-              </li>
-            ))}
-            <li className="pt-4">
-              <ProfileButton />
-            </li>
-          </ul>
-        </nav>
-      )}
+                  <Link 
+                    href={link.href} 
+                    onClick={() => setMobileOpen(false)}
+                    className={`text-4xl font-black uppercase italic tracking-tighter ${
+                      pathname === link.href ? 'text-primary' : 'text-foreground'
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                </motion.li>
+              ))}
+              <motion.li 
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ delay: 0.5 }}
+                className="pt-10"
+              >
+                <ProfileButton />
+              </motion.li>
+            </ul>
+          </motion.nav>
+        )}
+      </AnimatePresence>
     </header>
   )
 }
